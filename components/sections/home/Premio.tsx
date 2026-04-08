@@ -1,12 +1,10 @@
 'use client'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { fadeInUp, staggerContainer, scaleIn, viewportOnce, fadeInUpMobile, staggerContainerMobile, scaleInMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { fadeInUp, staggerContainer, viewportOnce } from '@/lib/animations'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 export default function Premio() {
-  const isMobile = useIsMobile()
   return (
     <section
       className="relative flex-1 flex flex-col justify-center"
@@ -28,13 +26,13 @@ export default function Premio() {
       {/* ── Text block ── */}
       <div className="container-max relative z-10 pt-10 pb-6">
         <motion.div
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           animate="visible"
           className="max-w-2xl mx-auto text-center"
         >
           {/* Badge */}
-          <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }}>
+          <motion.div variants={fadeInUp} style={{ willChange: 'transform' }}>
             <span
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-5"
               style={{ background: 'rgba(255,98,25,0.12)', border: '1px solid rgba(255,98,25,0.3)', color: '#FF6219' }}
@@ -46,7 +44,7 @@ export default function Premio() {
 
           {/* Headline */}
           <motion.h2
-            variants={isMobile ? fadeInUpMobile : fadeInUp}
+            variants={fadeInUp}
             style={{ willChange: 'transform' }}
             className="font-display font-bold leading-[1.05] mb-3"
           >
@@ -65,7 +63,7 @@ export default function Premio() {
           </motion.h2>
 
           {/* Subtitle row */}
-          <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="flex items-center justify-center gap-3 mb-5">
+          <motion.div variants={fadeInUp} style={{ willChange: 'transform' }} className="flex items-center justify-center gap-3 mb-5">
             <div className="h-px w-8 flex-shrink-0" style={{ backgroundColor: 'rgba(255,98,25,0.5)' }} />
             <span className="text-sm font-semibold tracking-wide uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
               Decima Edizione &mdash; 10 / 11 Novembre 2023
@@ -74,7 +72,7 @@ export default function Premio() {
 
           {/* Description */}
           <motion.p
-            variants={isMobile ? fadeInUpMobile : fadeInUp}
+            variants={fadeInUp}
             style={{ willChange: 'transform', color: 'rgba(255,255,255,0.58)' }}
             className="text-base leading-relaxed text-center"
           >

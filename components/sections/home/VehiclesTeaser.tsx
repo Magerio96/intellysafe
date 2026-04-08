@@ -2,8 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { staggerContainer, fadeInUp, fadeInUpMobile, staggerContainerMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp } from '@/lib/animations'
 import Image from 'next/image'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
@@ -53,7 +52,6 @@ const VEICOLI = [
 ]
 
 export default function VehiclesTeaser() {
-  const isMobile = useIsMobile()
   const [active, setActive] = useState(0)
   const [animKey, setAnimKey] = useState(0)
 
@@ -76,25 +74,25 @@ export default function VehiclesTeaser() {
 
         {/* Header — titolo + sottotitolo affiancati per risparmiare spazio verticale */}
         <motion.div
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           animate="visible"
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6"
         >
           <div>
             <motion.span
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               style={{ willChange: 'transform' }}
               className="section-label-light block mb-2"
             >
               Compatibilità
             </motion.span>
             <motion.div
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               style={{ willChange: 'transform', width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '0.75rem' }}
             />
             <motion.h2
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               style={{ willChange: 'transform' }}
               className="text-4xl md:text-5xl font-display font-bold leading-tight gradient-text"
             >
@@ -102,7 +100,7 @@ export default function VehiclesTeaser() {
             </motion.h2>
           </div>
           <motion.p
-            variants={isMobile ? fadeInUpMobile : fadeInUp}
+            variants={fadeInUp}
             style={{ willChange: 'transform', color: 'rgba(255,255,255,0.5)', maxWidth: 400 }}
             className="text-base leading-relaxed md:text-right"
           >

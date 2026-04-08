@@ -1,12 +1,10 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { fadeInUp, fadeInUpMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { fadeInUp } from '@/lib/animations'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 export default function ApplicazioniHero() {
-  const isMobile = useIsMobile()
   return (
     <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#161728' }}>
       <AnimatedBackground compact />
@@ -20,7 +18,7 @@ export default function ApplicazioniHero() {
         </nav>
         <motion.h1
           className="gradient-text text-4xl md:text-5xl font-display font-bold tracking-tight mb-4"
-          initial="hidden" animate="visible" variants={isMobile ? fadeInUpMobile : fadeInUp}
+          initial="hidden" animate="visible" variants={fadeInUp}
           style={{ willChange: 'transform' }}
         >
           Applicazioni
@@ -29,7 +27,7 @@ export default function ApplicazioniHero() {
         <motion.p
           className="text-lg"
           style={{ color: 'rgba(255,255,255,0.6)', willChange: 'transform' }}
-          initial="hidden" animate="visible" variants={isMobile ? fadeInUpMobile : fadeInUp}
+          initial="hidden" animate="visible" variants={fadeInUp}
         >
           Il sistema al lavoro nei settori industriali, agricoli e di sicurezza.
         </motion.p>

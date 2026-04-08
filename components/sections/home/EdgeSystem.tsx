@@ -3,8 +3,7 @@ import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Play, Pause, Zap, Wifi, BellRing, Network, BarChart2, Settings2 } from 'lucide-react'
-import { fadeInUp, staggerContainer, scaleIn, fadeInUpMobile, staggerContainerMobile, scaleInMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations'
 
 const FEATURES = [
   { icon: Zap,      title: 'Azioni automatiche',   description: 'Esegue azioni se rileva malfunzionamenti o intrusioni' },
@@ -16,7 +15,6 @@ const FEATURES = [
 ]
 
 export default function EdgeSystem() {
-  const isMobile = useIsMobile()
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
 
@@ -39,9 +37,9 @@ export default function EdgeSystem() {
 
           {/* Colonna sinistra: testo */}
           <div className="flex flex-col gap-6">
-            <motion.div variants={isMobile ? staggerContainerMobile : staggerContainer} initial="hidden" animate="visible">
+            <motion.div variants={staggerContainer} initial="hidden" animate="visible">
               <motion.span
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 style={{ willChange: 'transform' }}
                 className="section-label block mb-3"
               >
@@ -49,12 +47,12 @@ export default function EdgeSystem() {
               </motion.span>
 
               <motion.div
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 style={{ willChange: 'transform', width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.25rem' }}
               />
 
               <motion.h2
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 style={{ willChange: 'transform', color: '#252849' }}
                 className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight"
               >
@@ -62,14 +60,14 @@ export default function EdgeSystem() {
               </motion.h2>
 
               <motion.p
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 style={{ willChange: 'transform', color: '#5A5C78' }}
                 className="text-base mb-6 leading-relaxed"
               >
                 Veicoli a guida autonoma che operano in campo senza ausilio del personale — sicuri, programmabili e sempre attivi.
               </motion.p>
 
-              <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="flex items-center gap-3 flex-wrap">
+              <motion.div variants={fadeInUp} style={{ willChange: 'transform' }} className="flex items-center gap-3 flex-wrap">
                 <Link href="/sistema" className="btn-primary">
                   Scopri il sistema →
                 </Link>
@@ -83,7 +81,7 @@ export default function EdgeSystem() {
 
           {/* Colonna destra: video */}
           <motion.div
-            variants={isMobile ? scaleInMobile : scaleIn}
+            variants={scaleIn}
             initial="hidden"
             animate="visible"
             style={{ willChange: 'transform' }}
@@ -132,7 +130,7 @@ export default function EdgeSystem() {
 
         {/* ── Riga 2: feature grid 100% width ── */}
         <motion.div
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3"
@@ -142,7 +140,7 @@ export default function EdgeSystem() {
             return (
               <motion.div
                 key={f.title}
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 className="group relative overflow-hidden flex flex-col"
                 style={{
                   willChange: 'transform',

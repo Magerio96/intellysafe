@@ -1,8 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { staggerContainer, fadeInUp, viewportOnce, fadeInUpMobile, staggerContainerMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
 import { Zap, Users, Radio, Clock, Bell, Shield, Activity, Settings, ChevronDown, type LucideIcon } from 'lucide-react'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 import { FEATURE_IA } from '@/lib/constants'
@@ -13,7 +12,6 @@ const ICON_MAP: Record<string, LucideIcon> = {
 }
 
 export default function SistemaFunzionalita() {
-  const isMobile = useIsMobile()
   const [openId, setOpenId] = useState<number | null>(1)
 
   return (
@@ -25,20 +23,20 @@ export default function SistemaFunzionalita() {
         {/* ── Header ── */}
         <motion.div
           className="mb-14"
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
         >
-          <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-3">
+          <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-3">
             Intelligenza Artificiale
           </motion.span>
           <motion.div
-            variants={isMobile ? fadeInUpMobile : fadeInUp}
+            variants={fadeInUp}
             style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }}
           />
           <motion.h2
-            variants={isMobile ? fadeInUpMobile : fadeInUp}
+            variants={fadeInUp}
             className="text-3xl md:text-4xl font-display font-bold text-white"
             style={{ willChange: 'transform' }}
           >
@@ -51,7 +49,7 @@ export default function SistemaFunzionalita() {
           {[FEATURE_IA.slice(0, 4), FEATURE_IA.slice(4, 8)].map((col, ci) => (
             <motion.div
               key={ci}
-              variants={isMobile ? staggerContainerMobile : staggerContainer}
+              variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={viewportOnce}
@@ -63,7 +61,7 @@ export default function SistemaFunzionalita() {
                 return (
                   <motion.div
                     key={f.id}
-                    variants={isMobile ? fadeInUpMobile : fadeInUp}
+                    variants={fadeInUp}
                     style={{
                       willChange: 'transform',
                       borderRadius: 12,

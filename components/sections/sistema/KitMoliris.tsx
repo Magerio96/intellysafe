@@ -1,11 +1,9 @@
 'use client'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight, viewportOnce, fadeInUpMobile, staggerContainerMobile, fadeInLeftMobile, fadeInRightMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp, fadeInRight, viewportOnce } from '@/lib/animations'
 import Image from 'next/image'
 
 export default function KitMoliris() {
-  const isMobile = useIsMobile()
   return (
     <section style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max">
@@ -13,27 +11,27 @@ export default function KitMoliris() {
 
           {/* Left: content */}
           <motion.div
-            variants={isMobile ? staggerContainerMobile : staggerContainer}
+            variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
-            <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+            <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
               Navigazione autonoma
             </motion.span>
             <motion.div
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }}
             />
             <motion.h2
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               className="text-3xl md:text-4xl font-display font-bold mb-6"
               style={{ color: '#0f1221', willChange: 'transform' }}
             >
               Kit Moliris
             </motion.h2>
             <motion.p
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               className="leading-relaxed mb-6"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
@@ -43,11 +41,11 @@ export default function KitMoliris() {
             </motion.p>
 
             {/* Feature list */}
-            <motion.ul variants={isMobile ? staggerContainerMobile : staggerContainer} className="flex flex-col gap-3 mb-8">
+            <motion.ul variants={staggerContainer} className="flex flex-col gap-3 mb-8">
               {['Mapping Laser', 'Teleguida', 'Evitamento ostacoli'].map(item => (
                 <motion.li
                   key={item}
-                  variants={isMobile ? fadeInUpMobile : fadeInUp}
+                  variants={fadeInUp}
                   style={{ willChange: 'transform' }}
                   className="flex items-center gap-3 font-semibold text-sm"
                 >
@@ -64,16 +62,16 @@ export default function KitMoliris() {
               ))}
             </motion.ul>
 
-            <motion.div variants={isMobile ? staggerContainerMobile : staggerContainer}>
+            <motion.div variants={staggerContainer}>
               <motion.h3
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 className="text-lg font-display font-bold mb-3"
                 style={{ color: '#0f1221', willChange: 'transform' }}
               >
                 Missioni
               </motion.h3>
               <motion.p
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 className="leading-relaxed mb-3"
                 style={{ color: '#5A5C78', willChange: 'transform' }}
               >
@@ -81,7 +79,7 @@ export default function KitMoliris() {
                 pre-selezionate sulla mappa, attivando sensori ed attuatori installati a bordo.
               </motion.p>
               <motion.p
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 className="leading-relaxed"
                 style={{ color: '#5A5C78', willChange: 'transform' }}
               >
@@ -96,7 +94,7 @@ export default function KitMoliris() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            variants={isMobile ? fadeInRightMobile : fadeInRight}
+            variants={fadeInRight}
             style={{ willChange: 'transform' }}
           >
             <div style={{ position: 'relative' }}>

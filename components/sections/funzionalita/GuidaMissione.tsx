@@ -1,8 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { staggerContainer, fadeInUp, viewportOnce, fadeInUpMobile, staggerContainerMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
 import Image from 'next/image'
 import { STEPS_MISSIONE } from '@/lib/constants'
 
@@ -14,7 +13,6 @@ const STEP_IMAGES = [
 ]
 
 export default function GuidaMissione() {
-  const isMobile = useIsMobile()
   const [activeStep, setActiveStep] = useState(0)
   const [animKey, setAnimKey] = useState(0)
   const [direction, setDirection] = useState(1)
@@ -33,18 +31,18 @@ export default function GuidaMissione() {
       <div className="container-max">
 
         {/* Header */}
-        <motion.div className="mb-12" variants={isMobile ? staggerContainerMobile : staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-          <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+        <motion.div className="mb-12" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+          <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
             Workflow
           </motion.span>
-          <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
-          <motion.h2 variants={isMobile ? fadeInUpMobile : fadeInUp} className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#0f1221', willChange: 'transform' }}>
+          <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#0f1221', willChange: 'transform' }}>
             Pianificazione di una missione
           </motion.h2>
         </motion.div>
 
         {/* Step indicator */}
-        <motion.div className="relative w-full mb-10" initial="hidden" whileInView="visible" viewport={viewportOnce} variants={isMobile ? fadeInUpMobile : fadeInUp}>
+        <motion.div className="relative w-full mb-10" initial="hidden" whileInView="visible" viewport={viewportOnce} variants={fadeInUp}>
           {/* Linee connettore — da centro col1 (12.5%) a centro col4 (87.5%), divise in 3 segmenti uguali */}
           <div className="absolute flex" style={{ top: 18, left: '12.5%', right: '12.5%', zIndex: 0 }}>
             {[0, 1, 2].map(i => (

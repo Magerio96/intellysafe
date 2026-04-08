@@ -1,7 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, viewportOnce, fadeInUpMobile, staggerContainerMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
 import { Shield, Home, Leaf, Heart, Package, Settings, Crosshair, Zap, type LucideIcon } from 'lucide-react'
 
 const SETTORI: { titolo: string; icon: LucideIcon; voci: string[] }[] = [
@@ -48,7 +47,6 @@ const SETTORI: { titolo: string; icon: LucideIcon; voci: string[] }[] = [
 ]
 
 export default function Settori() {
-  const isMobile = useIsMobile()
   return (
     <section style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max">
@@ -56,16 +54,16 @@ export default function Settori() {
         {/* Header */}
         <motion.div
           className="mb-12"
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
         >
-          <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+          <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
             Applicazioni
           </motion.span>
-          <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
-          <motion.h2 variants={isMobile ? fadeInUpMobile : fadeInUp} className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#0f1221', willChange: 'transform' }}>
+          <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#0f1221', willChange: 'transform' }}>
             Settori e possibili applicazioni
           </motion.h2>
         </motion.div>
@@ -73,7 +71,7 @@ export default function Settori() {
         {/* Grid 4×2 */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -84,7 +82,7 @@ export default function Settori() {
             return (
               <motion.div
                 key={s.titolo}
-                variants={isMobile ? fadeInUpMobile : fadeInUp}
+                variants={fadeInUp}
                 className="group relative overflow-hidden flex flex-col"
                 style={{
                   willChange: 'transform',

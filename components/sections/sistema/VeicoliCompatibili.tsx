@@ -2,8 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { staggerContainer, fadeInUp, fadeInUpMobile, staggerContainerMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp } from '@/lib/animations'
 import Image from 'next/image'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
@@ -103,7 +102,6 @@ const FILTRI: { label: string; value: Filtro }[] = [
 ]
 
 export default function VeicoliCompatibili() {
-  const isMobile = useIsMobile()
   const [filtro,   setFiltro]   = useState<Filtro>('tutti')
   const [active,   setActive]   = useState(0)
   const [animKey,  setAnimKey]  = useState(0)
@@ -134,22 +132,22 @@ export default function VeicoliCompatibili() {
 
         {/* Header */}
         <motion.div
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6"
         >
           <div>
-            <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-2">
+            <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-2">
               Compatibilità
             </motion.span>
             <motion.div
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               style={{ willChange: 'transform', width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '0.75rem' }}
             />
             <motion.h2
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               style={{ willChange: 'transform' }}
               className="text-4xl md:text-5xl font-display font-bold leading-tight gradient-text"
             >
@@ -157,7 +155,7 @@ export default function VeicoliCompatibili() {
             </motion.h2>
           </div>
           <motion.p
-            variants={isMobile ? fadeInUpMobile : fadeInUp}
+            variants={fadeInUp}
             style={{ willChange: 'transform', color: 'rgba(255,255,255,0.5)', maxWidth: 400 }}
             className="text-base leading-relaxed md:text-right"
           >
@@ -168,7 +166,7 @@ export default function VeicoliCompatibili() {
 
         {/* Filter tabs */}
         <motion.div
-          variants={isMobile ? staggerContainerMobile : staggerContainer}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
@@ -177,7 +175,7 @@ export default function VeicoliCompatibili() {
           {FILTRI.map(f => (
             <motion.button
               key={f.value}
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               onClick={() => handleFiltro(f.value)}
               className="text-xs font-bold uppercase tracking-wide transition-all duration-200"
               style={{

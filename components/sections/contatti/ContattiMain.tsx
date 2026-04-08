@@ -2,8 +2,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight, viewportOnce, fadeInUpMobile, staggerContainerMobile, fadeInLeftMobile, fadeInRightMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp, fadeInRight, viewportOnce } from '@/lib/animations'
 import { Mail, ExternalLink, CheckCircle } from 'lucide-react'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 import { REFERENTI } from '@/lib/constants'
@@ -15,7 +14,6 @@ interface FormData {
 }
 
 export default function ContattiMain() {
-  const isMobile = useIsMobile()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
@@ -43,13 +41,13 @@ export default function ContattiMain() {
 
           {/* ── Left: headline + referenti ── */}
           <motion.div
-            variants={isMobile ? staggerContainerMobile : staggerContainer}
+            variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
             {/* Badge */}
-            <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }}>
+            <motion.div variants={fadeInUp} style={{ willChange: 'transform' }}>
               <span
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
                 style={{ background: 'rgba(255,98,25,0.15)', color: '#FF6219', border: '1px solid rgba(255,98,25,0.3)' }}
@@ -60,7 +58,7 @@ export default function ContattiMain() {
 
             {/* Headline */}
             <motion.h2
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-5"
               style={{ willChange: 'transform' }}
             >
@@ -74,7 +72,7 @@ export default function ContattiMain() {
             </motion.h2>
 
             <motion.p
-              variants={isMobile ? fadeInUpMobile : fadeInUp}
+              variants={fadeInUp}
               className="text-base mb-10 leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.55)', maxWidth: 460, willChange: 'transform' }}
             >
@@ -83,7 +81,7 @@ export default function ContattiMain() {
             </motion.p>
 
             {/* Referenti */}
-            <motion.div variants={isMobile ? staggerContainerMobile : staggerContainer} className="flex flex-col gap-4">
+            <motion.div variants={staggerContainer} className="flex flex-col gap-4">
               {REFERENTI.map(r => {
                 const logoSrc = r.azienda === "Ud'Anet"
                   ? '/images/logo-udanet.png'
@@ -91,7 +89,7 @@ export default function ContattiMain() {
                 return (
                   <motion.div
                     key={r.email}
-                    variants={isMobile ? fadeInUpMobile : fadeInUp}
+                    variants={fadeInUp}
                     style={{
                       willChange: 'transform',
                       backgroundColor: 'rgba(255,255,255,0.04)',
@@ -151,7 +149,7 @@ export default function ContattiMain() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            variants={isMobile ? fadeInRightMobile : fadeInRight}
+            variants={fadeInRight}
             style={{ willChange: 'transform' }}
           >
             <div className="p-6 md:p-10" style={{

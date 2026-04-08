@@ -2,8 +2,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Shield, Home, Package, ShieldCheck } from 'lucide-react'
-import { staggerContainer, fadeInUp, scaleIn, fadeInUpMobile, staggerContainerMobile, scaleInMobile } from '@/lib/animations'
-import { useIsMobile } from '@/lib/useIsMobile'
+import { staggerContainer, fadeInUp, scaleIn } from '@/lib/animations'
 import Image from 'next/image'
 
 const CARDS = [
@@ -34,7 +33,6 @@ const CARDS = [
 ]
 
 export default function SectorsTeaser() {
-  const isMobile = useIsMobile()
   return (
     <section
       className="flex-1 flex flex-col justify-center"
@@ -44,18 +42,18 @@ export default function SectorsTeaser() {
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-end" style={{ paddingBottom: '30px' }}>
 
           {/* ── Sinistra: header + card grid ── */}
-          <motion.div variants={isMobile ? staggerContainerMobile : staggerContainer} initial="hidden" animate="visible" className="flex flex-col gap-6">
+          <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="flex flex-col gap-6">
 
             {/* Header */}
             <div>
-              <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+              <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
                 Applicazioni
               </motion.span>
-              <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform', width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '0.75rem' }} />
-              <motion.h2 variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform', color: '#0f1221' }} className="text-4xl md:text-5xl font-display font-bold leading-tight mb-2">
+              <motion.div variants={fadeInUp} style={{ willChange: 'transform', width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '0.75rem' }} />
+              <motion.h2 variants={fadeInUp} style={{ willChange: 'transform', color: '#0f1221' }} className="text-4xl md:text-5xl font-display font-bold leading-tight mb-2">
                 Settori e <span style={{ color: '#FF6219' }}>applicazioni</span>
               </motion.h2>
-              <motion.p variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform', color: '#6b7290', fontSize: 14, lineHeight: 1.6 }}>
+              <motion.p variants={fadeInUp} style={{ willChange: 'transform', color: '#6b7290', fontSize: 14, lineHeight: 1.6 }}>
                 Soluzioni per ogni ambito industriale e di servizio. Scopri dove IntellySafe è già al lavoro.
               </motion.p>
             </div>
@@ -67,7 +65,7 @@ export default function SectorsTeaser() {
                 return (
                   <motion.div
                     key={card.titolo}
-                    variants={isMobile ? fadeInUpMobile : fadeInUp}
+                    variants={fadeInUp}
                     className="group relative overflow-hidden flex flex-col"
                     style={{
                       willChange: 'transform',
@@ -98,7 +96,7 @@ export default function SectorsTeaser() {
             </div>
 
             {/* CTA visible only on mobile */}
-            <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="flex gap-3 lg:hidden mt-2">
+            <motion.div variants={fadeInUp} style={{ willChange: 'transform' }} className="flex gap-3 lg:hidden mt-2">
               <Link href="/applicazioni" className="btn-primary text-sm">Vedi tutte →</Link>
               <Link href="/contatti" className="btn-secondary text-sm" style={{ color: '#0f1221', border: '1.5px solid #c8cedd' }}>Contattaci</Link>
             </motion.div>
@@ -107,7 +105,7 @@ export default function SectorsTeaser() {
 
           {/* ── Destra: immagine + CTA ── */}
           <motion.div
-            variants={isMobile ? scaleInMobile : scaleIn}
+            variants={scaleIn}
             initial="hidden"
             animate="visible"
             style={{ willChange: 'transform' }}
