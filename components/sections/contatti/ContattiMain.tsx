@@ -152,11 +152,10 @@ export default function ContattiMain() {
             variants={fadeInRight}
             style={{ willChange: 'transform' }}
           >
-            <div style={{
+            <div className="p-6 md:p-10" style={{
               backgroundColor: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: 20,
-              padding: '40px 36px',
             }}>
               {submitted ? (
                 <div className="flex flex-col items-center text-center py-12">

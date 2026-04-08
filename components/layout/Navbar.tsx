@@ -45,9 +45,9 @@ export default function Navbar() {
     : scrolled
 
   const navStyle = {
-    backgroundColor: 'rgba(22, 23, 40, 0.92)',
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
+    backgroundColor: mobileOpen ? '#161728' : 'rgba(22, 23, 40, 0.92)',
+    backdropFilter: mobileOpen ? 'none' : 'blur(20px)',
+    WebkitBackdropFilter: mobileOpen ? 'none' : 'blur(20px)',
     borderBottom: '1px solid rgba(255,255,255,0.08)',
   }
 
@@ -107,7 +107,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 px-6 py-8 flex flex-col gap-6"
+            className="fixed inset-0 top-16 px-6 py-8 flex flex-col gap-6 z-[100]"
             style={{ backgroundColor: '#161728' }}
           >
             {NAV_LINKS.map(link => (

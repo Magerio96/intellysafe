@@ -58,6 +58,33 @@ body:has(main.snap-container) footer {
   display: none;
 }
 
+/* ── Mobile responsive overrides ──────────────────────────── */
+@media (max-width: 640px) {
+  /* Reduce large section paddings */
+  section[style*="padding: 80px"] {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+  }
+
+  /* Scale down oversized headings on small screens */
+  .text-4xl {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+  .text-5xl {
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Reduce excessive grid gaps when columns are stacked */
+  .gap-16 {
+    gap: 2.5rem !important;
+  }
+  .gap-12 {
+    gap: 2rem !important;
+  }
+}
+
 @layer components {
   .btn-primary {
     display: inline-flex;

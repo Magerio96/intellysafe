@@ -78,17 +78,16 @@ export default function GuidaMissione() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: direction * -16 }}
             transition={{ duration: 0.24, ease: 'easeOut' }}
+            className="grid grid-cols-1 md:grid-cols-2"
             style={{
               backgroundColor: '#fff',
               border: '1px solid #e4e8f0',
               borderRadius: 16,
               overflow: 'hidden',
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
             }}
           >
             {/* Left: immagine su sfondo dark */}
-            <div style={{ backgroundColor: '#0f1221', position: 'relative', minHeight: 360 }}>
+            <div className="min-h-[220px] md:min-h-[360px]" style={{ backgroundColor: '#0f1221', position: 'relative' }}>
               <Image
                 src={STEP_IMAGES[activeStep]}
                 alt={step.titolo}
@@ -99,7 +98,7 @@ export default function GuidaMissione() {
             </div>
 
             {/* Right: testo */}
-            <div style={{ padding: '40px 36px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 16 }}>
+            <div className="p-6 md:p-10" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 16 }}>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                 width: 32, height: 32, borderRadius: '50%',
