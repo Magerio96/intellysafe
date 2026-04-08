@@ -30,6 +30,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Force GPU layer for smoother rendering */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -57,6 +59,12 @@ body:has(main.snap-container) {
 /* Hide footer on homepage — CTABlock serves as final section */
 body:has(main.snap-container) footer {
   display: none;
+}
+
+/* ── Performance: GPU compositing for animated sections ───── */
+main.snap-container > section {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* ── Disable snap scroll on mobile ────────────────────────── */

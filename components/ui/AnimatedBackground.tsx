@@ -2,6 +2,14 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false)
+  useEffect(() => {
+    setMobile(window.innerWidth < 768)
+  }, [])
+  return mobile
+}
+
 const NODE_PCT = [
   { x: 5,  y: 12 }, { x: 18, y: 6  }, { x: 35, y: 10 },
   { x: 55, y: 5  }, { x: 72, y: 12 }, { x: 88, y: 7  },
@@ -44,6 +52,7 @@ interface Props {
 }
 
 export default function AnimatedBackground({ compact = false }: Props) {
+  const isMobile = useIsMobile()
   const wrapRef = useRef<HTMLDivElement>(null)
   const [dims, setDims] = useState({ w: 1440, h: 900 })
 
@@ -59,7 +68,9 @@ export default function AnimatedBackground({ compact = false }: Props) {
     return () => ro.disconnect()
   }, [])
 
-  const nodes = NODE_PCT.map(n => ({
+  // On mobile: use fewer nodes to reduce SVG complexity
+  const nodePct = isMobile ? NODE_PCT.slice(0, 10) : NODE_PCT
+  const nodes = nodePct.map(n => ({
     cx: (n.x / 100) * dims.w,
     cy: (n.y / 100) * dims.h,
   }))
@@ -75,13 +86,13 @@ export default function AnimatedBackground({ compact = false }: Props) {
 
   return (
     <div ref={wrapRef} className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Blobs */}
+      {/* Blobs — on mobile skip blur filter (too GPU heavy) */}
       {BLOBS.map((blob, i) => (
         <motion.div
           key={i}
           className="absolute"
-          style={{ ...blob.style, filter: 'blur(70px)' }}
-          animate={blob.animate}
+          style={{ ...blob.style, filter: isMobile ? 'blur(40px)' : 'blur(70px)' }}
+          animate={isMobile ? undefined : blob.animate}
           transition={blob.transition}
         />
       ))}
@@ -134,8 +145,8 @@ export default function AnimatedBackground({ compact = false }: Props) {
         ))}
       </svg>
 
-      {/* Pulse rings from center */}
-      {!compact && RINGS.map(i => (
+      {/* Pulse rings from center — skip on mobile */}
+      {!compact && !isMobile && RINGS.map(i => (
         <motion.div
           key={i}
           className="absolute rounded-full"
@@ -149,8 +160,8 @@ export default function AnimatedBackground({ compact = false }: Props) {
         />
       ))}
 
-      {/* Scan lines */}
-      {SCAN_LINES.map((pos, i) => (
+      {/* Scan lines — skip on mobile */}
+      {!isMobile && SCAN_LINES.map((pos, i) => (
         <motion.div
           key={i}
           className="absolute left-0 right-0"
