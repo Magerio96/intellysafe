@@ -38,9 +38,9 @@ export default function EdgeSystemIntro() {
             {/* Label */}
             <motion.span
               variants={fadeInUp}
-              style={{ willChange: 'transform' }}
               className="block mb-4 text-xs font-bold tracking-[2.5px] uppercase"
               style={{
+                willChange: 'transform',
                 color: '#ff6a1f',
                 borderBottom: '2px solid #ff6a1f',
                 display: 'inline-block',

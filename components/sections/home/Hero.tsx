@@ -17,7 +17,7 @@ const container = {
 }
 const item = {
   hidden:   { opacity: 0, y: 50, filter: 'blur(10px)' },
-  visible:  { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] } },
+  visible:  { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] } },
 }
 
 export default function Hero() {
