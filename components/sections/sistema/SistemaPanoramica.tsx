@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, fadeInRight, viewportOnce } from '@/lib/animations'
+import { staggerContainer, fadeInUp, fadeInRight, viewportOnce, fadeInUpMobile, staggerContainerMobile, fadeInRightMobile } from '@/lib/animations'
+import { useIsMobile } from '@/lib/useIsMobile'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Zap, Users, Radio, Clock, Bell, Shield, type LucideIcon } from 'lucide-react'
@@ -19,6 +20,7 @@ const FEATURES = [
 ]
 
 export default function SistemaPanoramica() {
+  const isMobile = useIsMobile()
   return (
     <section id="panoramica" style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max">
@@ -27,27 +29,27 @@ export default function SistemaPanoramica() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Left */}
           <motion.div
-            variants={staggerContainer}
+            variants={isMobile ? staggerContainerMobile : staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
-            <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+            <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
               Il Sistema
             </motion.span>
             <motion.div
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }}
             />
             <motion.h2
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               className="text-3xl md:text-4xl font-display font-bold mb-6"
               style={{ color: '#0f1221', willChange: 'transform' }}
             >
               Descrizione del sistema
             </motion.h2>
             <motion.p
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               className="leading-relaxed mb-4"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
@@ -56,7 +58,7 @@ export default function SistemaPanoramica() {
               un&apos;applicazione web che può interfacciarsi con i sistemi di navigazione di robot.
             </motion.p>
             <motion.p
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               className="leading-relaxed mb-8"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
@@ -64,7 +66,7 @@ export default function SistemaPanoramica() {
               robot e ad un algoritmo ottimizzato di intelligenza artificiale, in grado di
               riconoscere persone o animali.
             </motion.p>
-            <motion.div variants={fadeInUp} style={{ willChange: 'transform' }}>
+            <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }}>
               <Link href="/contatti" className="btn-primary">
                 Richiedi una demo →
               </Link>
@@ -76,7 +78,7 @@ export default function SistemaPanoramica() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            variants={fadeInRight}
+            variants={isMobile ? fadeInRightMobile : fadeInRight}
             style={{ willChange: 'transform' }}
           >
             <div style={{ borderRadius: 16, overflow: 'hidden' }}>
@@ -98,7 +100,7 @@ export default function SistemaPanoramica() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            variants={fadeInUp}
+            variants={isMobile ? fadeInUpMobile : fadeInUp}
             style={{ willChange: 'transform' }}
           >
             <div style={{ borderRadius: 16, overflow: 'hidden' }}>
@@ -114,27 +116,27 @@ export default function SistemaPanoramica() {
 
           {/* Right text */}
           <motion.div
-            variants={staggerContainer}
+            variants={isMobile ? staggerContainerMobile : staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
-            <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+            <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
               Interfaccia
             </motion.span>
             <motion.div
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }}
             />
             <motion.h2
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               className="text-3xl md:text-4xl font-display font-bold mb-6"
               style={{ color: '#0f1221', willChange: 'transform' }}
             >
               Interfaccia utente e alcune basi robotiche
             </motion.h2>
             <motion.p
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               className="leading-relaxed"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
@@ -150,7 +152,7 @@ export default function SistemaPanoramica() {
         {/* ── Feature grid 3×2 ── */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          variants={staggerContainer}
+          variants={isMobile ? staggerContainerMobile : staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -160,7 +162,7 @@ export default function SistemaPanoramica() {
             return (
               <motion.div
                 key={f.titolo}
-                variants={fadeInUp}
+                variants={isMobile ? fadeInUpMobile : fadeInUp}
                 className="group relative overflow-hidden flex flex-col"
                 style={{
                   willChange: 'transform',

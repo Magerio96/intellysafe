@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
+import { staggerContainer, fadeInUp, viewportOnce, fadeInUpMobile, staggerContainerMobile } from '@/lib/animations'
+import { useIsMobile } from '@/lib/useIsMobile'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 const VIDEOS = [
@@ -22,6 +23,7 @@ const VIDEOS = [
 ]
 
 export default function CasoDuso() {
+  const isMobile = useIsMobile()
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: '#0f1221', padding: '80px 0' }}>
       <AnimatedBackground compact />
@@ -31,19 +33,19 @@ export default function CasoDuso() {
         {/* Header */}
         <motion.div
           className="mb-12"
-          variants={staggerContainer}
+          variants={isMobile ? staggerContainerMobile : staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
         >
-          <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-3">
+          <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-3">
             Casi d&apos;uso
           </motion.span>
-          <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
-          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold text-white mb-4" style={{ willChange: 'transform' }}>
+          <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
+          <motion.h2 variants={isMobile ? fadeInUpMobile : fadeInUp} className="text-3xl md:text-4xl font-display font-bold text-white mb-4" style={{ willChange: 'transform' }}>
             Il sistema in azione
           </motion.h2>
-          <motion.p variants={fadeInUp} style={{ fontSize: 14, color: '#5a6480', lineHeight: 1.6, maxWidth: 600, willChange: 'transform' }}>
+          <motion.p variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ fontSize: 14, color: '#5a6480', lineHeight: 1.6, maxWidth: 600, willChange: 'transform' }}>
             Dalla prevenzione incendi all&apos;agricoltura di precisione — guarda MOLIRIS al lavoro in scenari operativi reali.
           </motion.p>
         </motion.div>
@@ -51,7 +53,7 @@ export default function CasoDuso() {
         {/* Video grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-5"
-          variants={staggerContainer}
+          variants={isMobile ? staggerContainerMobile : staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
@@ -59,7 +61,7 @@ export default function CasoDuso() {
           {VIDEOS.map((v) => (
             <motion.div
               key={v.id}
-              variants={fadeInUp}
+              variants={isMobile ? fadeInUpMobile : fadeInUp}
               className="group transition-all duration-200"
               style={{
                 willChange: 'transform',

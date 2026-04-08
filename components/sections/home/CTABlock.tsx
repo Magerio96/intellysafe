@@ -2,11 +2,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
+import { staggerContainer, fadeInUp, viewportOnce, fadeInUpMobile, staggerContainerMobile } from '@/lib/animations'
+import { useIsMobile } from '@/lib/useIsMobile'
 import { REFERENTI } from '@/lib/constants'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 export default function CTABlock() {
+  const isMobile = useIsMobile()
   return (
     <div
       className="flex-1 flex flex-col justify-center section-padding relative overflow-hidden"
@@ -17,13 +19,13 @@ export default function CTABlock() {
       <div className="container-max relative z-10">
         <motion.div
           className="max-w-3xl mx-auto text-center"
-          variants={staggerContainer}
+          variants={isMobile ? staggerContainerMobile : staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
         >
           {/* Badge */}
-          <motion.div variants={fadeInUp} style={{ willChange: 'transform' }}>
+          <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }}>
             <span
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
               style={{ background: 'rgba(255,98,25,0.15)', color: '#FF6219', border: '1px solid rgba(255,98,25,0.3)' }}
@@ -34,7 +36,7 @@ export default function CTABlock() {
 
           {/* Headline */}
           <motion.h2
-            variants={fadeInUp}
+            variants={isMobile ? fadeInUpMobile : fadeInUp}
             className="text-4xl md:text-5xl xl:text-[3.2rem] font-display font-bold text-white leading-[1.1] mb-5"
             style={{ willChange: 'transform' }}
           >
@@ -48,7 +50,7 @@ export default function CTABlock() {
           </motion.h2>
 
           <motion.p
-            variants={fadeInUp}
+            variants={isMobile ? fadeInUpMobile : fadeInUp}
             className="text-lg mb-10 max-w-xl mx-auto"
             style={{ color: 'rgba(255,255,255,0.6)', willChange: 'transform' }}
           >
@@ -57,7 +59,7 @@ export default function CTABlock() {
 
           {/* Buttons */}
           <motion.div
-            variants={fadeInUp}
+            variants={isMobile ? fadeInUpMobile : fadeInUp}
             className="flex flex-wrap gap-4 justify-center mb-16"
             style={{ willChange: 'transform' }}
           >
@@ -71,7 +73,7 @@ export default function CTABlock() {
 
           {/* Referenti */}
           <motion.div
-            variants={fadeInUp}
+            variants={isMobile ? fadeInUpMobile : fadeInUp}
             style={{ willChange: 'transform', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '2rem' }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
           >

@@ -1,12 +1,14 @@
 'use client'
 import { motion } from 'framer-motion'
-import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight, viewportOnce } from '@/lib/animations'
+import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight, viewportOnce, fadeInUpMobile, staggerContainerMobile, fadeInLeftMobile, fadeInRightMobile } from '@/lib/animations'
+import { useIsMobile } from '@/lib/useIsMobile'
 import Image from 'next/image'
 import Link from 'next/link'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 import { SCHEDULING_CARDS } from '@/lib/constants'
 
 export default function FunzionalitaDettaglio() {
+  const isMobile = useIsMobile()
   return (
     <section style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max flex flex-col gap-20">
@@ -14,21 +16,21 @@ export default function FunzionalitaDettaglio() {
         {/* ── Blocco 1: Scheduling — testo sinistra, immagine destra ── */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left */}
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-            <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+          <motion.div variants={isMobile ? staggerContainerMobile : staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+            <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
               Pianificazione
             </motion.span>
-            <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold mb-4" style={{ color: '#0f1221', willChange: 'transform' }}>
+            <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
+            <motion.h2 variants={isMobile ? fadeInUpMobile : fadeInUp} className="text-3xl md:text-4xl font-display font-bold mb-4" style={{ color: '#0f1221', willChange: 'transform' }}>
               Scheduling missioni e supervisione
             </motion.h2>
-            <motion.p variants={fadeInUp} className="leading-relaxed mb-8" style={{ color: '#6b7290', fontSize: 14, lineHeight: 1.6, willChange: 'transform' }}>
+            <motion.p variants={isMobile ? fadeInUpMobile : fadeInUp} className="leading-relaxed mb-8" style={{ color: '#6b7290', fontSize: 14, lineHeight: 1.6, willChange: 'transform' }}>
               Il robot è equipaggiato con una applicazione accessibile in rete locale, tramite browser web,
               in grado di pianificarne le missioni, gestirle e di supervisionarne il funzionamento in tempo reale.
             </motion.p>
             <div className="flex flex-col gap-3">
               {SCHEDULING_CARDS.map((card, i) => (
-                <motion.div key={i} variants={fadeInUp} style={{
+                <motion.div key={i} variants={isMobile ? fadeInUpMobile : fadeInUp} style={{
                   willChange: 'transform',
                   backgroundColor: '#fff',
                   border: '1px solid #e4e8f0',
@@ -48,7 +50,7 @@ export default function FunzionalitaDettaglio() {
           </motion.div>
 
           {/* Right: immagine ritagliata — excess bianco a destra rimosso */}
-          <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={fadeInRight} style={{ willChange: 'transform' }}>
+          <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={isMobile ? fadeInRightMobile : fadeInRight} style={{ willChange: 'transform' }}>
             <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: 12, overflow: 'hidden' }}>
               <Image
                 src="/images/scheduling.png"
@@ -67,7 +69,7 @@ export default function FunzionalitaDettaglio() {
         {/* ── Blocco 2: Input/Output — immagine sinistra, testo destra ── */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: immagine */}
-          <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={fadeInLeft} style={{ willChange: 'transform' }}>
+          <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={isMobile ? fadeInLeftMobile : fadeInLeft} style={{ willChange: 'transform' }}>
             <Image
               src="/images/scheduling_missioni-removebg-preview.png"
               alt="Input/Output sensoristica"
@@ -78,15 +80,15 @@ export default function FunzionalitaDettaglio() {
           </motion.div>
 
           {/* Right: testo */}
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
-            <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
+          <motion.div variants={isMobile ? staggerContainerMobile : staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
+            <motion.span variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
               Sensoristica
             </motion.span>
-            <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
-            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold mb-6" style={{ color: '#0f1221', willChange: 'transform' }}>
+            <motion.div variants={isMobile ? fadeInUpMobile : fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
+            <motion.h2 variants={isMobile ? fadeInUpMobile : fadeInUp} className="text-3xl md:text-4xl font-display font-bold mb-6" style={{ color: '#0f1221', willChange: 'transform' }}>
               Input/Output
             </motion.h2>
-            <motion.p variants={fadeInUp} className="leading-relaxed" style={{ color: '#6b7290', fontSize: 14, lineHeight: 1.6, willChange: 'transform' }}>
+            <motion.p variants={isMobile ? fadeInUpMobile : fadeInUp} className="leading-relaxed" style={{ color: '#6b7290', fontSize: 14, lineHeight: 1.6, willChange: 'transform' }}>
               Potete equipaggiare il nostro sistema robotico con una serie di sensori analogici
               e digitali, e riportare le informazioni e gli eventi associati nel sw di
               supervisione e controllo. In questa schermata sono listati alcuni I/O presenti
