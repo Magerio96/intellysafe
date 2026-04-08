@@ -64,9 +64,9 @@ export default function EdgeSystemFeatures() {
               <motion.div
                 key={f.title}
                 variants={fadeInUp}
-                style={{ willChange: 'transform' }}
                 className="feature-card group relative rounded-xl p-4 overflow-hidden"
                 style={{
+                  willChange: 'transform',
                   backgroundColor: '#fff',
                   border: '1px solid #e4e8f0',
                   borderRadius: '12px',
