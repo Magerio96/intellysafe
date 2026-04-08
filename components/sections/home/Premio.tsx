@@ -92,7 +92,7 @@ export default function Premio() {
         transition={{ duration: 0.7, delay: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
         style={{ willChange: 'transform' }}
       >
-        <div className="relative">
+        <div className="relative overflow-hidden sm:overflow-visible">
           {/* Glow behind */}
           <div
             className="absolute -inset-2 rounded-3xl pointer-events-none"

@@ -95,6 +95,12 @@ export default function SectorsTeaser() {
               })}
             </div>
 
+            {/* CTA visible only on mobile */}
+            <motion.div variants={fadeInUp} style={{ willChange: 'transform' }} className="flex gap-3 lg:hidden mt-2">
+              <Link href="/applicazioni" className="btn-primary text-sm">Vedi tutte →</Link>
+              <Link href="/contatti" className="btn-secondary text-sm" style={{ color: '#0f1221', border: '1.5px solid #c8cedd' }}>Contattaci</Link>
+            </motion.div>
+
           </motion.div>
 
           {/* ── Destra: immagine + CTA ── */}
@@ -102,8 +108,8 @@ export default function SectorsTeaser() {
             variants={scaleIn}
             initial="hidden"
             animate="visible"
-            style={{ willChange: 'transform', paddingTop: '60px' }}
-            className="relative flex flex-col gap-4"
+            style={{ willChange: 'transform' }}
+            className="relative flex-col gap-4 hidden lg:flex"
           >
             {/* Ambient glow */}
             <div
