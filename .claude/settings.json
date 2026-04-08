@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(identify /Users/lorenzo/Desktop/Lavoro/intellysafe/public/images/hero-dashboard.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/lorenzo/Desktop/Lavoro/intellysafe/public/images/hero-dashboard.png)",
+      "Bash(claude logout:*)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(curl -s http://localhost:3000/)"
+    ]
+  }
+}
