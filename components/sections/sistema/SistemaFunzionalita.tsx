@@ -62,13 +62,18 @@ export default function SistemaFunzionalita() {
                   <motion.div
                     key={f.id}
                     variants={fadeInUp}
+                    whileHover={!isOpen ? {
+                      borderColor: 'rgba(255,98,25,0.25)',
+                      backgroundColor: 'rgba(255,255,255,0.055)',
+                    } : undefined}
                     style={{
                       willChange: 'transform',
                       borderRadius: 12,
                       border: isOpen ? '1px solid rgba(255,98,25,0.35)' : '1px solid rgba(255,255,255,0.07)',
                       backgroundColor: isOpen ? 'rgba(255,98,25,0.06)' : 'rgba(255,255,255,0.03)',
-                      transition: 'background-color 0.25s, border-color 0.25s',
+                      transition: 'background-color 0.2s, border-color 0.2s',
                       overflow: 'hidden',
+                      cursor: 'pointer',
                     }}
                   >
                     <button
@@ -93,9 +98,9 @@ export default function SistemaFunzionalita() {
                       </span>
                       <ChevronDown style={{
                         width: 15, height: 15,
-                        color: 'rgba(255,255,255,0.3)',
+                        color: isOpen ? 'rgba(255,98,25,0.7)' : 'rgba(255,255,255,0.3)',
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                        transition: 'transform 0.25s',
+                        transition: 'transform 0.25s, color 0.2s',
                         flexShrink: 0,
                       }} />
                     </button>
