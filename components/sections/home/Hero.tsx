@@ -5,7 +5,7 @@ import AnimatedText from '@/components/ui/AnimatedText'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 const stats = [
-  { value: '6',   label: 'Modelli robot' },
+  { value: '5',   label: 'Modelli robot' },
   { value: '8',   label: 'Settori applicativi' },
   { value: 'h24', label: 'Sorveglianza autonoma' },
 ]
