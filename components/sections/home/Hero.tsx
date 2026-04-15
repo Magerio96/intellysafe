@@ -83,8 +83,16 @@ export default function Hero() {
             className="text-base md:text-lg leading-relaxed mb-10 max-w-xl"
             style={{ color: 'rgba(255,255,255,0.6)', willChange: 'transform' }}
           >
-            Ud&apos;Anet, in collaborazione con Info Solution s.r.l, presenta IntellySafe
-            Edge System: sviluppo di veicoli a guida autonoma da impiegare in processi
+            Ud&apos;Anet, in collaborazione con{' '}
+            <a
+              href="https://infosolution.it/it/robot-autonomi-soluzioni/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#FF6219', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+            >
+              Info Solution s.r.l
+            </a>
+            , presenta IntellySafe Edge System: sviluppo di veicoli a guida autonoma da impiegare in processi
             produttivi e servizi a valore aggiunto senza ausilio del personale.
           </motion.p>
 
