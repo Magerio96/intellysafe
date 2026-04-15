@@ -38,34 +38,6 @@ const VEICOLI = [
     tags: ['Compatto', 'Cingolato', 'Versatile'],
   },
   {
-    nome: 'Tracked Base',
-    immagine: '/images/Trackedbase.png',
-    tipo: 'tracked' as const,
-    descrizione: 'Versione base cingolata, IP54',
-    dettaglio: 'Versione entry-level della linea cingolata, ideale per ambienti semi-industriali con buona protezione ambientale.',
-    specs: [
-      { label: 'Peso',       valore: '135',  unita: 'kg' },
-      { label: 'Portata',    valore: '80',   unita: 'kg' },
-      { label: 'Coppia',     valore: '—',    unita: ''   },
-      { label: 'Protezione', valore: 'IP54', unita: ''   },
-    ],
-    tags: ['Entry Level', 'Cingolato', 'Semi-industriale'],
-  },
-  {
-    nome: 'Wheeled',
-    immagine: '/images/NewWheeled.png',
-    tipo: 'wheeled' as const,
-    descrizione: 'Alta manovrabilità, ambienti interni',
-    dettaglio: 'Ottima manovrabilità per ambienti interni, disponibile in varianti con diversi gradi di protezione.',
-    specs: [
-      { label: 'Peso',       valore: '62',   unita: 'kg' },
-      { label: 'Portata',    valore: '50',   unita: 'kg' },
-      { label: 'Coppia',     valore: '—',    unita: ''   },
-      { label: 'Protezione', valore: 'IP44', unita: ''   },
-    ],
-    tags: ['Manovrabile', 'Ruote', 'Indoor'],
-  },
-  {
     nome: 'Tracked Mini',
     immagine: '/images/trackedmini.png',
     tipo: 'tracked' as const,
@@ -202,8 +174,15 @@ export default function VeicoliCompatibili() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.15 }}
+                whileHover={i !== active ? {
+                  backgroundColor: 'rgba(255,106,31,0.08)',
+                  borderColor: 'rgba(255,106,31,0.3)',
+                  color: 'rgba(255,255,255,0.85)',
+                  scale: 1.03,
+                } : undefined}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => handleSelect(i)}
-                className="relative transition-all duration-200"
+                className="relative"
                 style={{
                   padding: '9px 20px',
                   borderRadius: 10,
@@ -212,6 +191,7 @@ export default function VeicoliCompatibili() {
                   color: i === active ? '#FF6219' : 'rgba(255,255,255,0.5)',
                   fontWeight: 600,
                   fontSize: 13,
+                  transition: 'background-color 0.15s, border-color 0.15s, color 0.15s',
                 }}
               >
                 {item.nome}

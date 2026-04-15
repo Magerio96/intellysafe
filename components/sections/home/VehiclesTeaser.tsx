@@ -35,20 +35,6 @@ const VEICOLI = [
     ],
     tags: ['Compatto', 'Cingolato', 'Versatile'],
   },
-  {
-    nome: 'Wheeled',
-    immagine: '/images/NewWheeled.png',
-    tipo: 'wheeled',
-    descrizione: 'Alta manovrabilità, ambienti interni',
-    dettaglio: 'Ottima manovrabilità per ambienti interni, disponibile in varianti con diversi gradi di protezione.',
-    specs: [
-      { label: 'Peso', valore: '62', unita: 'kg' },
-      { label: 'Portata', valore: '50', unita: 'kg' },
-      { label: 'Coppia', valore: '—', unita: '' },
-      { label: 'Protezione', valore: 'IP44', unita: '' },
-    ],
-    tags: ['Manovrabile', 'Ruote', 'Indoor'],
-  },
 ]
 
 export default function VehiclesTeaser() {
@@ -114,18 +100,24 @@ export default function VehiclesTeaser() {
           {/* ── Lista veicoli ── */}
           <div className="flex flex-col gap-2">
             {VEICOLI.map((item, i) => (
-              <button
+              <motion.button
                 key={item.nome}
                 onClick={() => handleSelect(i)}
-                className="relative text-left rounded-xl overflow-hidden transition-all duration-200"
+                className="relative text-left rounded-xl overflow-hidden"
                 style={{
                   backgroundColor: i === active ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)',
                   border: `1px solid ${i === active ? 'rgba(255,106,31,0.4)' : 'rgba(255,255,255,0.08)'}`,
                   padding: '12px 16px',
+                  transition: 'background-color 0.15s, border-color 0.15s',
                 }}
+                whileHover={i !== active ? {
+                  backgroundColor: 'rgba(255,255,255,0.07)',
+                  borderColor: 'rgba(255,106,31,0.25)',
+                } : undefined}
+                whileTap={{ scale: 0.98 }}
               >
                 <div
-                  className="absolute left-0 top-0 bottom-0 w-[3px] origin-top transition-transform duration-250"
+                  className="absolute left-0 top-0 bottom-0 w-[3px] origin-top transition-transform duration-200"
                   style={{ backgroundColor: '#FF6219', transform: i === active ? 'scaleY(1)' : 'scaleY(0)' }}
                 />
                 <p className="font-bold text-sm mb-1 text-white">{item.nome}</p>
@@ -139,7 +131,7 @@ export default function VehiclesTeaser() {
                   {item.tipo}
                 </span>
                 <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.descrizione}</p>
-              </button>
+              </motion.button>
             ))}
 
             <Link
