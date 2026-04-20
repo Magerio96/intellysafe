@@ -34,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-16">{children}</main>
         <Footer />
         <Script src="https://cdn.iubenda.com/iubenda.js" strategy="afterInteractive" />
+        <Script src="https://embeds.iubenda.com/widgets/1f14b2ca-f5a3-49d4-83ef-13c9a7eb3b39.js" strategy="afterInteractive" />
       </body>
     </html>
   )
