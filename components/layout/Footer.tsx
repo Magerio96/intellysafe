@@ -79,8 +79,24 @@ export default function Footer() {
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="container-max py-4 text-center text-sm relative z-10" style={{ color: 'rgba(255,255,255,0.25)' }}>
-          © 2025 IntellySafe Edge System — Created by Udanet
+        <div className="container-max py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm relative z-10" style={{ color: 'rgba(255,255,255,0.25)' }}>
+          <span>© 2025 IntellySafe Edge System — Created by Udanet</span>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.iubenda.com/privacy-policy/38114373"
+              className="iubenda-white iubenda-noiframe iubenda-embed transition-colors hover:text-[#FF6219]"
+              title="Privacy Policy"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="https://www.iubenda.com/privacy-policy/38114373/cookie-policy"
+              className="iubenda-white iubenda-noiframe iubenda-embed transition-colors hover:text-[#FF6219]"
+              title="Cookie Policy"
+            >
+              Cookie Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>
