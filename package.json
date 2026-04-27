@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "next start -p 3004",
+    "lint": "eslint",
+    "deploy": "npm run build && rsync -e ssh -aWzv --delete --stats --progress ./ root@intellysafe.it:/var/www/intellysafe.it"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
