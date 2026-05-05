@@ -106,6 +106,7 @@ export default function EdgeSystem() {
                   className="absolute inset-0 w-full h-full"
                   style={{ objectFit: 'contain' }}
                   src="/videos/IntellySafe-Video-Presentation (1).mp4"
+                  poster="/images/image.png"
                   loop
                   playsInline
                   onEnded={() => setPlaying(false)}
