@@ -1,27 +1,15 @@
 'use client'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
-const VIDEOS = [
-  {
-    id: 'WtxZrWH16AY',
-    titolo: 'Scopri la prevenzione incendi intelligente',
-    descrizione: 'Rilevamento di principi di incendio e anomalie termiche in tempo reale con MOLIRIS & Thermospot®.',
-  },
-  {
-    id: 'sozZ5R-LLk0',
-    titolo: 'Segui l\'agricoltura di precisione',
-    descrizione: 'Distribuzione autonoma di biostimolanti e raccolta dati per una viticoltura smart.',
-  },
-  {
-    id: 'CDBz1hH9VZY',
-    titolo: 'Esplora lo smart farming con MOLIRIS',
-    descrizione: 'Navigazione autonoma in serra e outdoor con rilevamento ostacoli in tempo reale.',
-  },
-]
+const VIDEO_IDS = ['WtxZrWH16AY', 'sozZ5R-LLk0', 'CDBz1hH9VZY']
 
 export default function CasoDuso() {
+  const t = useTranslations('applicazioni.casoDuso')
+  const videos = t.raw('videos') as Array<{ titolo: string; descrizione: string }>
+
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor: '#0f1221', padding: '80px 0' }}>
       <AnimatedBackground compact />
@@ -37,14 +25,14 @@ export default function CasoDuso() {
           viewport={viewportOnce}
         >
           <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-3">
-            Casi d&apos;uso
+            {t('label')}
           </motion.span>
           <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
           <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold text-white mb-4" style={{ willChange: 'transform' }}>
-            Il sistema in azione
+            {t('headline')}
           </motion.h2>
           <motion.p variants={fadeInUp} style={{ fontSize: 14, color: '#5a6480', lineHeight: 1.6, maxWidth: 600, willChange: 'transform' }}>
-            Dalla prevenzione incendi all&apos;agricoltura di precisione — guarda MOLIRIS al lavoro in scenari operativi reali.
+            {t('description')}
           </motion.p>
         </motion.div>
 
@@ -56,9 +44,9 @@ export default function CasoDuso() {
           whileInView="visible"
           viewport={viewportOnce}
         >
-          {VIDEOS.map((v) => (
+          {videos.map((v, idx) => (
             <motion.div
-              key={v.id}
+              key={VIDEO_IDS[idx]}
               variants={fadeInUp}
               className="group transition-all duration-200"
               style={{
@@ -76,7 +64,7 @@ export default function CasoDuso() {
               {/* Video embed 16:9 */}
               <div style={{ position: 'relative', paddingBottom: '56.25%', backgroundColor: '#0a0d1a' }}>
                 <iframe
-                  src={`https://www.youtube.com/embed/${v.id}`}
+                  src={`https://www.youtube.com/embed/${VIDEO_IDS[idx]}`}
                   title={v.titolo}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

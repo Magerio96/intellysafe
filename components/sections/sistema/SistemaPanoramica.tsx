@@ -1,24 +1,20 @@
 'use client'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, fadeInRight, viewportOnce } from '@/lib/animations'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { Zap, Users, Radio, Clock, Bell, Shield, type LucideIcon } from 'lucide-react'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   zap: Zap, users: Users, radio: Radio, clock: Clock, bell: Bell, shield: Shield,
 }
-
-const FEATURES = [
-  { icona: 'zap',    titolo: 'Azioni automatiche',       descrizione: 'Esegue azioni automatiche se rileva malfunzionamenti ed intrusioni' },
-  { icona: 'bell',   titolo: 'Allarmi in tempo reale',   descrizione: 'Invia messaggi di allarme agli operatori in campo ed alla centrale di sorveglianza' },
-  { icona: 'radio',  titolo: 'Controllo da remoto',      descrizione: 'Può essere comandato tramite apposita applicazione sia localmente che a distanza, per garantire la massima sicurezza agli operatori' },
-  { icona: 'clock',  titolo: 'Controllo programmato',    descrizione: 'Svolge un servizio di controllo programmabile o in automatico' },
-  { icona: 'shield', titolo: 'Intercetta intrusi',       descrizione: 'Intercetta e documenta le attività svolte da personale non autorizzato nell\'area sorvegliata' },
-  { icona: 'users',  titolo: 'Modalità collaborativa',   descrizione: 'Lavora in modalità collaborativa con altri robot della stessa serie' },
-]
+const FEATURE_ICONS = ['zap', 'bell', 'radio', 'clock', 'shield', 'users']
 
 export default function SistemaPanoramica() {
+  const t = useTranslations('sistema.panoramica')
+  const features = t.raw('features') as Array<{ titolo: string; descrizione: string }>
+
   return (
     <section id="panoramica" style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max">
@@ -33,7 +29,7 @@ export default function SistemaPanoramica() {
             viewport={viewportOnce}
           >
             <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
-              Il Sistema
+              {t('label1')}
             </motion.span>
             <motion.div
               variants={fadeInUp}
@@ -44,29 +40,25 @@ export default function SistemaPanoramica() {
               className="text-3xl md:text-4xl font-display font-bold mb-6"
               style={{ color: '#0f1221', willChange: 'transform' }}
             >
-              Descrizione del sistema
+              {t('headline1')}
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="leading-relaxed mb-4"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
-              IntellySafe Edge System è un sistema robotico di Intelligenza Artificiale per
-              la sorveglianza attiva, costituito da un&apos;applicazione server dislocata e da
-              un&apos;applicazione web che può interfacciarsi con i sistemi di navigazione di robot.
+              {t('text1')}
             </motion.p>
             <motion.p
               variants={fadeInUp}
               className="leading-relaxed mb-8"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
-              Il sistema è in grado di rilevare intrusioni, grazie alle telecamere a bordo del
-              robot e ad un algoritmo ottimizzato di intelligenza artificiale, in grado di
-              riconoscere persone o animali.
+              {t('text2')}
             </motion.p>
             <motion.div variants={fadeInUp} style={{ willChange: 'transform' }}>
               <Link href="/contatti" className="btn-primary">
-                Richiedi una demo →
+                {t('cta')}
               </Link>
             </motion.div>
           </motion.div>
@@ -120,7 +112,7 @@ export default function SistemaPanoramica() {
             viewport={viewportOnce}
           >
             <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
-              Interfaccia
+              {t('label2')}
             </motion.span>
             <motion.div
               variants={fadeInUp}
@@ -131,18 +123,14 @@ export default function SistemaPanoramica() {
               className="text-3xl md:text-4xl font-display font-bold mb-6"
               style={{ color: '#0f1221', willChange: 'transform' }}
             >
-              Interfaccia utente e alcune basi robotiche
+              {t('headline2')}
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="leading-relaxed"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
-              Il sistema si controlla tramite un&apos;interfaccia grafica accessibile da un comune
-              browser per PC o tablet in connessione wireless. L&apos;interfaccia permette di
-              visualizzare il video della telecamera di bordo e le telemetrie del robot, di creare
-              e gestire le mappe, di programmare e gestire le missioni, ma anche guidare e
-              controllare il robot tramite tastiera, mouse o joypad.
+              {t('text3')}
             </motion.p>
           </motion.div>
         </div>
@@ -155,8 +143,9 @@ export default function SistemaPanoramica() {
           whileInView="visible"
           viewport={viewportOnce}
         >
-          {FEATURES.map(f => {
-            const Icon = ICON_MAP[f.icona]
+          {features.map((f, idx) => {
+            const iconKey = FEATURE_ICONS[idx] ?? 'zap'
+            const Icon = ICON_MAP[iconKey]
             return (
               <motion.div
                 key={f.titolo}

@@ -1,14 +1,9 @@
 'use client'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 import AnimatedText from '@/components/ui/AnimatedText'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
-
-const stats = [
-  { value: '5',   label: 'Modelli robot' },
-  { value: '8',   label: 'Settori applicativi' },
-  { value: 'h24', label: 'Sorveglianza autonoma' },
-]
 
 /* ─── Content animation ────────────────────────────────────── */
 const container = {
@@ -21,6 +16,10 @@ const item = {
 }
 
 export default function Hero() {
+  const t = useTranslations('home.hero')
+  const stats = t.raw('stats') as Array<{ value: string; label: string }>
+  const animatedWords = t.raw('animatedWords') as string[]
+
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden"
@@ -64,7 +63,7 @@ export default function Hero() {
         >
           <motion.div variants={item} style={{ willChange: 'transform' }}>
             <span className="badge-orange mb-6 inline-flex">
-              Sistema robotico AI — Intelligenza Artificiale
+              {t('badge')}
             </span>
           </motion.div>
 
@@ -73,9 +72,9 @@ export default function Hero() {
             className="text-4xl md:text-5xl xl:text-[3.25rem] font-display font-bold text-white leading-[1.1] mb-6"
             style={{ willChange: 'transform' }}
           >
-            Sistema robotico di IA
+            {t('headline1')}
             <br />
-            per attività di <AnimatedText />
+            {t('headline2')} <AnimatedText words={animatedWords} />
           </motion.h1>
 
           <motion.p
@@ -83,17 +82,7 @@ export default function Hero() {
             className="text-base md:text-lg leading-relaxed mb-10 max-w-xl"
             style={{ color: 'rgba(255,255,255,0.6)', willChange: 'transform' }}
           >
-            Ud&apos;Anet, in collaborazione con{' '}
-            <a
-              href="https://infosolution.it/it/robot-autonomi-soluzioni/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#FF6219', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-            >
-              Info Solution s.r.l
-            </a>
-            , presenta IntellySafe Edge System: sviluppo di veicoli a guida autonoma da impiegare in processi
-            produttivi e servizi a valore aggiunto senza ausilio del personale.
+            {t('description')}
           </motion.p>
 
           <motion.div
@@ -102,10 +91,10 @@ export default function Hero() {
             style={{ willChange: 'transform' }}
           >
             <Link href="/sistema" className="btn-primary">
-              Scopri il Sistema →
+              {t('cta1')}
             </Link>
             <Link href="/contatti" className="btn-secondary">
-              Contattaci
+              {t('cta2')}
             </Link>
           </motion.div>
 

@@ -1,43 +1,24 @@
 'use client'
 import { useState } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { staggerContainer, fadeInUp } from '@/lib/animations'
 import Image from 'next/image'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
-const VEICOLI = [
-  {
-    nome: 'Heavy Duty',
-    immagine: '/images/NewHeavyDuty.png',
-    tipo: 'tracked',
-    descrizione: 'Alta portata, uso industriale pesante',
-    dettaglio: 'Progettato per ambienti industriali impegnativi, garantisce prestazioni elevate e affidabilità in condizioni estreme.',
-    specs: [
-      { label: 'Peso', valore: '290', unita: 'kg' },
-      { label: 'Portata', valore: '500', unita: 'kg' },
-      { label: 'Coppia', valore: '1000', unita: 'Nm' },
-      { label: 'Protezione', valore: 'IP65', unita: '' },
-    ],
-    tags: ['Alta portata', 'Cingolato', 'Industriale'],
-  },
-  {
-    nome: 'Tracked Pro',
-    immagine: '/images/NewtrackedPro.png',
-    tipo: 'tracked',
-    descrizione: 'Compatto e versatile, IP67',
-    dettaglio: 'Soluzione compatta e versatile ideale per spazi ristretti, con elevata protezione contro acqua e polvere.',
-    specs: [
-      { label: 'Peso', valore: '180', unita: 'kg' },
-      { label: 'Portata', valore: '120', unita: 'kg' },
-      { label: 'Coppia', valore: '600', unita: 'Nm' },
-      { label: 'Protezione', valore: 'IP67', unita: '' },
-    ],
-    tags: ['Compatto', 'Cingolato', 'Versatile'],
-  },
-]
+const VEICOLO_IMAGES = ['/images/NewHeavyDuty.png', '/images/NewtrackedPro.png']
 
 export default function VehiclesTeaser() {
+  const t = useTranslations('home.vehiclesTeaser')
+  const vehicles = t.raw('vehicles') as Array<{
+    nome: string
+    descrizione: string
+    dettaglio: string
+    tags: string[]
+    specs: Array<{ label: string; valore: string; unita: string }>
+  }>
+
   const [active, setActive] = useState(0)
   const [animKey, setAnimKey] = useState(0)
 
@@ -47,7 +28,7 @@ export default function VehiclesTeaser() {
     setAnimKey(k => k + 1)
   }
 
-  const v = VEICOLI[active]
+  const v = vehicles[active]
 
   return (
     <section
@@ -71,7 +52,7 @@ export default function VehiclesTeaser() {
               style={{ willChange: 'transform' }}
               className="section-label-light block mb-2"
             >
-              Compatibilità
+              {t('label')}
             </motion.span>
             <motion.div
               variants={fadeInUp}
@@ -82,7 +63,7 @@ export default function VehiclesTeaser() {
               style={{ willChange: 'transform' }}
               className="text-4xl md:text-5xl font-display font-bold leading-tight gradient-text"
             >
-              Veicoli compatibili
+              {t('headline')}
             </motion.h2>
           </div>
           <motion.p
@@ -90,7 +71,7 @@ export default function VehiclesTeaser() {
             style={{ willChange: 'transform', color: 'rgba(255,255,255,0.5)', maxWidth: 400 }}
             className="text-base leading-relaxed md:text-right"
           >
-            I sistemi supportano diverse piattaforme robotiche, permettendo l&apos;integrazione e il controllo di veicoli con caratteristiche e capacità differenti.
+            {t('description')}
           </motion.p>
         </motion.div>
 
@@ -99,7 +80,7 @@ export default function VehiclesTeaser() {
 
           {/* ── Lista veicoli ── */}
           <div className="flex flex-col gap-2">
-            {VEICOLI.map((item, i) => (
+            {vehicles.map((item, i) => (
               <motion.button
                 key={item.nome}
                 onClick={() => handleSelect(i)}
@@ -123,12 +104,9 @@ export default function VehiclesTeaser() {
                 <p className="font-bold text-sm mb-1 text-white">{item.nome}</p>
                 <span
                   className="inline-block text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded mb-1"
-                  style={item.tipo === 'tracked'
-                    ? { color: '#ff6a1f', backgroundColor: 'rgba(255,106,31,0.12)', border: '1px solid rgba(255,106,31,0.3)' }
-                    : { color: '#8a94b0', backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }
-                  }
+                  style={{ color: '#ff6a1f', backgroundColor: 'rgba(255,106,31,0.12)', border: '1px solid rgba(255,106,31,0.3)' }}
                 >
-                  {item.tipo}
+                  tracked
                 </span>
                 <p className="text-[11px] leading-snug mt-0.5" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.descrizione}</p>
               </motion.button>
@@ -139,7 +117,7 @@ export default function VehiclesTeaser() {
               className="flex items-center justify-between px-4 py-3 rounded-xl transition-colors duration-200 mt-1"
               style={{ border: '1px dashed rgba(255,255,255,0.15)' }}
             >
-              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>+ 3 altri modelli</span>
+              <span className="text-sm" style={{ color: 'rgba(255,255,255,0.35)' }}>{t('moreModels')}</span>
               <span style={{ color: '#FF6219' }}>→</span>
             </Link>
           </div>
@@ -157,7 +135,7 @@ export default function VehiclesTeaser() {
               {/* Immagine — no box, sfondo trasparente */}
               <div className="relative flex items-center justify-center" style={{ height: 280 }}>
                 <Image
-                  src={v.immagine}
+                  src={VEICOLO_IMAGES[active] ?? VEICOLO_IMAGES[0]}
                   alt={v.nome}
                   fill
                   className="object-contain"
@@ -196,23 +174,23 @@ export default function VehiclesTeaser() {
                 </div>
 
                 <div className="flex flex-wrap gap-1.5">
-                  {v.tags.map((t) => (
+                  {v.tags.map((tag) => (
                     <span
-                      key={t}
+                      key={tag}
                       className="text-[11px] font-semibold px-2.5 py-1 rounded-md"
                       style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}
                     >
-                      {t}
+                      {tag}
                     </span>
                   ))}
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <Link href="/contatti" className="btn-primary text-center">
-                    Richiedi informazioni →
+                    {t('cta1')}
                   </Link>
                   <Link href="/sistema" className="btn-secondary text-center">
-                    Vedi tutti i veicoli →
+                    {t('cta2')}
                   </Link>
                 </div>
               </div>

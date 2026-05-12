@@ -1,0 +1,279 @@
+{
+  "nav": {
+    "home": "Home",
+    "sistema": "The System",
+    "funzionalita": "Features",
+    "applicazioni": "Applications",
+    "contatti": "Contact",
+    "cta": "Contact us →"
+  },
+  "footer": {
+    "description": "AI-powered robotic system for active surveillance, monitoring and security.",
+    "navigation": "Navigation",
+    "contacts": "Contacts",
+    "brochure": "Brochure PDF",
+    "copyright": "© 2025 IntellySafe Edge System — Created by Udanet"
+  },
+  "home": {
+    "hero": {
+      "badge": "AI Robotic System — Artificial Intelligence",
+      "headline1": "AI robotic system",
+      "headline2": "for",
+      "description": "Ud'Anet, in collaboration with Info Solution s.r.l, presents IntellySafe Edge System: development of autonomous vehicles for production processes and value-added services without human assistance.",
+      "cta1": "Discover the System →",
+      "cta2": "Contact us",
+      "stats": [
+        { "value": "5", "label": "Robot models" },
+        { "value": "8", "label": "Application sectors" },
+        { "value": "h24", "label": "Autonomous surveillance" }
+      ],
+      "animatedWords": ["surveillance", "monitoring", "security"]
+    },
+    "premio": {
+      "badge": "National Award 2023",
+      "headline1": "Champions of",
+      "headline2": "InnovAzioni",
+      "subtitle": "Tenth Edition — 10 / 11 November 2023",
+      "description": "The IntellySafe Edge System project was admitted to the national contest final, recognition of technological excellence in workplace safety.",
+      "readArticle": "Read the article →",
+      "finalists": "National Finalists",
+      "date": "10 / 11 November 2023"
+    },
+    "edgeSystem": {
+      "label": "The Artificial Intelligence System",
+      "headline": "IntellySafe",
+      "headlineAccent": "Edge System",
+      "description": "Autonomous vehicles operating in the field without human assistance — safe, programmable and always active.",
+      "cta1": "Discover the system →",
+      "ctaPlay": "Watch the demo",
+      "ctaPause": "Pause demo",
+      "demoLabel": "Watch the full demo",
+      "features": [
+        { "title": "Automatic actions", "description": "Performs actions when detecting malfunctions or intrusions" },
+        { "title": "Remote control", "description": "Operated locally or remotely via dedicated app" },
+        { "title": "Instant alerts", "description": "Alarm messages to operators and 24/7 control center" },
+        { "title": "Collaborative mode", "description": "Works in synergy with other robots of the same series" },
+        { "title": "Field measurements", "description": "Detects data from sensors and actuators in real time" },
+        { "title": "Flexible management", "description": "Plans, manages and supervises missions autonomously" }
+      ]
+    },
+    "vehiclesTeaser": {
+      "label": "Compatibility",
+      "headline": "Compatible vehicles",
+      "description": "The systems support multiple robotic platforms, enabling integration and control of vehicles with different characteristics and capabilities.",
+      "moreModels": "+ 3 more models",
+      "cta1": "Request information →",
+      "cta2": "View all vehicles →",
+      "vehicles": [
+        {
+          "nome": "Heavy Duty",
+          "descrizione": "High payload, heavy industrial use",
+          "dettaglio": "Designed for demanding industrial environments, it delivers high performance and reliability in extreme conditions.",
+          "tags": ["High payload", "Tracked", "Industrial"],
+          "specs": [
+            { "label": "Weight", "valore": "290", "unita": "kg" },
+            { "label": "Payload", "valore": "500", "unita": "kg" },
+            { "label": "Torque", "valore": "1000", "unita": "Nm" },
+            { "label": "Protection", "valore": "IP65", "unita": "" }
+          ]
+        },
+        {
+          "nome": "Tracked Pro",
+          "descrizione": "Compact and versatile, IP67",
+          "dettaglio": "Compact and versatile solution ideal for tight spaces, with high protection against water and dust.",
+          "tags": ["Compact", "Tracked", "Versatile"],
+          "specs": [
+            { "label": "Weight", "valore": "180", "unita": "kg" },
+            { "label": "Payload", "valore": "120", "unita": "kg" },
+            { "label": "Torque", "valore": "600", "unita": "Nm" },
+            { "label": "Protection", "valore": "IP67", "unita": "" }
+          ]
+        }
+      ]
+    },
+    "sectorsTeaser": {
+      "label": "Applications",
+      "headline1": "Sectors and",
+      "headlineAccent": "applications",
+      "description": "Solutions for every industrial and service sector. Discover where IntellySafe is already at work.",
+      "moreSectos": "+4 more sectors available",
+      "cta1": "View all →",
+      "cta2": "Contact us",
+      "cards": [
+        {
+          "titolo": "Security and surveillance",
+          "descrizione": "Autonomous 24/7 patrols, intrusion detection and active deterrence without continuous human presence.",
+          "tag": ["Patrols", "Intrusions", "Deterrence"]
+        },
+        {
+          "titolo": "Environmental safety",
+          "descrizione": "Constant monitoring of leaks, gas, smoke and fire outbreaks in industrial and civil environments.",
+          "tag": ["Gas", "Smoke", "Fire"]
+        },
+        {
+          "titolo": "Industrial logistics",
+          "descrizione": "Autonomous material transport, warehouse management and integration with existing WMS systems.",
+          "tag": ["Transport", "Warehouse", "WMS"]
+        },
+        {
+          "titolo": "Defense and perimeter control",
+          "descrizione": "Automatic patrolling of restricted areas with real-time alerts and activity documentation.",
+          "tag": ["Patrolling", "Alert"]
+        }
+      ]
+    },
+    "ctaBlock": {
+      "badge": "🚀 Ready for your demo",
+      "headline1": "Ready to discover",
+      "headlineAccent": "IntellySafe?",
+      "description": "Contact us for a demo or for more information about the AI robotic system.",
+      "cta1": "Contact us now →",
+      "cta2": "Discover the system"
+    }
+  },
+  "sistema": {
+    "hero": {
+      "breadcrumb": "Home › The System",
+      "headline": "IntellySafe Edge System",
+      "description": "AI robotic system for active surveillance and autonomous monitoring."
+    },
+    "panoramica": {
+      "label1": "The System",
+      "headline1": "System description",
+      "text1": "IntellySafe Edge System is an AI robotic system for active surveillance, consisting of a distributed server application and a web application that can interface with robot navigation systems.",
+      "text2": "The system is capable of detecting intrusions, thanks to the cameras on board the robot and an optimized artificial intelligence algorithm able to recognize people or animals.",
+      "cta": "Request a demo →",
+      "label2": "Interface",
+      "headline2": "User interface and robotic bases",
+      "text3": "The system is controlled through a graphical interface accessible from a standard PC or tablet browser via wireless connection. The interface allows viewing of the onboard camera video and robot telemetry, creating and managing maps, scheduling and managing missions, as well as driving and controlling the robot via keyboard, mouse or joypad.",
+      "features": [
+        { "titolo": "Automatic actions", "descrizione": "Performs automatic actions when detecting malfunctions and intrusions" },
+        { "titolo": "Real-time alerts", "descrizione": "Sends alarm messages to field operators and the surveillance center" },
+        { "titolo": "Remote control", "descrizione": "Can be operated via dedicated application both locally and remotely, ensuring maximum operator safety" },
+        { "titolo": "Scheduled control", "descrizione": "Provides a programmable or automatic control service" },
+        { "titolo": "Intercepts intruders", "descrizione": "Intercepts and documents activities carried out by unauthorized personnel in the surveilled area" },
+        { "titolo": "Collaborative mode", "descrizione": "Works collaboratively with other robots of the same series" }
+      ]
+    },
+    "kitMoliris": {
+      "label": "Autonomous navigation",
+      "headline": "Kit Moliris",
+      "text": "Installing the KIT on a mobile robot enables autonomous navigation through environment perception, area map building, robot localization on the map and obstacle avoidance.",
+      "features": ["Laser Mapping", "Teleoperation", "Obstacle avoidance"],
+      "missionTitle": "Missions",
+      "missionText1": "The robot will autonomously reach a series of pre-selected stops called 'waypoints' on the map, activating sensors and actuators installed on board.",
+      "missionText2": "At each waypoint the robot can perform actions using sensors and actuators installed on board through a simple and intuitive interface."
+    },
+    "sistemaIA": {
+      "label": "Artificial Intelligence",
+      "headline": "The Artificial Intelligence System",
+      "features": [
+        { "titolo": "Automatic actions", "descrizione": "Performs automatic actions when detecting malfunctions and intrusions" },
+        { "titolo": "Collaborative mode", "descrizione": "Works collaboratively with other robots of the same series" },
+        { "titolo": "Remote operation", "descrizione": "Can be operated via dedicated application both locally and remotely, ensuring maximum operator safety" },
+        { "titolo": "Scheduled or automatic control", "descrizione": "Provides a programmable or automatic control service" },
+        { "titolo": "Sends alarm messages", "descrizione": "Sends alarm messages to field operators and the surveillance center" },
+        { "titolo": "Intercepts unauthorized personnel", "descrizione": "Intercepts and documents activities carried out by unauthorized personnel in the surveilled area" },
+        { "titolo": "Analog and digital measurements", "descrizione": "Detects analog and digital field measurements from sensors and actuators. Consequently executes programmed actions" },
+        { "titolo": "Flexible management", "descrizione": "Allows flexible sensor management, mission planning, management and real-time supervision" }
+      ]
+    },
+    "veicoli": {
+      "label": "Compatibility",
+      "headline": "Compatible vehicles",
+      "description": "The systems support multiple robotic platforms, enabling integration and control of vehicles with different characteristics and capabilities.",
+      "filterAll": "All",
+      "cta1": "Request information →",
+      "cta2": "Data sheet"
+    }
+  },
+  "funzionalita": {
+    "hero": {
+      "breadcrumb": "Home › Features",
+      "headline": "Features",
+      "description": "Planning, supervision and real-time control of the robotic system."
+    },
+    "scheduling": {
+      "label": "Planning",
+      "headline": "Mission scheduling and supervision",
+      "text": "The robot is equipped with an application accessible on the local network via web browser, capable of planning missions, managing them and supervising their operation in real time.",
+      "cards": [
+        { "titolo": "Sensor interface", "testo": "The onboard sensors can be configured and managed from a dedicated supervision interface" },
+        { "titolo": "Custom processing steps", "testo": "Through the available software we can control the robot's behavior and create custom processing steps for each work process" }
+      ]
+    },
+    "inputOutput": {
+      "label": "Sensors",
+      "headline": "Input/Output",
+      "text": "You can equip our robotic system with a series of analog and digital sensors, and report the information and associated events in the supervision and control software. This screen lists some I/O available in the robotic system."
+    },
+    "guidaMissione": {
+      "label": "Workflow",
+      "headline": "Mission planning",
+      "prev": "← Previous",
+      "next": "Next →",
+      "steps": [
+        { "titolo": "Configured missions list", "descrizione": "View and manage all missions already configured in the system", "placeholderLabel": "Missions list" },
+        { "titolo": "Mission configuration", "descrizione": "Editing area with list of available actions for each mission waypoint", "placeholderLabel": "Editing area" },
+        { "titolo": "Action assignment to waypoint", "descrizione": "Link I/O type actions to each mission point to automate robot behaviors", "placeholderLabel": "I/O type actions" },
+        { "titolo": "Mission in progress and current phase", "descrizione": "Real-time supervision of the active mission and current robot status", "placeholderLabel": "Mission in progress" }
+      ]
+    }
+  },
+  "applicazioni": {
+    "hero": {
+      "breadcrumb": "Home › Applications",
+      "headline": "Applications",
+      "description": "The system at work in industrial, agricultural and security sectors."
+    },
+    "settori": {
+      "label": "Applications",
+      "headline": "Sectors and possible applications",
+      "items": [
+        { "titolo": "Security and surveillance", "voci": ["Patrols", "Intruder detection", "Deterrence"] },
+        { "titolo": "Environmental safety", "voci": ["Water leak detection", "Fire outbreak detection", "Gas detection", "Smoke detection"] },
+        { "titolo": "Precision agriculture", "voci": ["Pesticide spraying", "Harvesting", "Weed control"] },
+        { "titolo": "Healthcare", "voci": ["Sanitization", "Drug and sample transport", "Linen and waste transport"] },
+        { "titolo": "Material handling", "voci": ["With robotic arm", "With logistics integration"] },
+        { "titolo": "Industrial plants or power stations", "voci": ["Inspections", "Detection"] },
+        { "titolo": "Laser scanning", "voci": ["High-resolution laser scanning of buildings", "Digital twin"] },
+        { "titolo": "First response", "voci": ["First response after a disaster"] }
+      ]
+    },
+    "casoDuso": {
+      "label": "Use cases",
+      "headline": "The system in action",
+      "description": "From fire prevention to precision agriculture — watch MOLIRIS at work in real operational scenarios.",
+      "videos": [
+        { "titolo": "Discover intelligent fire prevention", "descrizione": "Real-time detection of fire outbreaks and thermal anomalies with MOLIRIS & Thermospot®." },
+        { "titolo": "Follow precision agriculture", "descrizione": "Autonomous distribution of biostimulants and data collection for smart viticulture." },
+        { "titolo": "Explore smart farming with MOLIRIS", "descrizione": "Autonomous indoor and outdoor navigation with real-time obstacle detection." }
+      ]
+    }
+  },
+  "contatti": {
+    "hero": {
+      "breadcrumb": "Home › Contact",
+      "headline": "Contact us",
+      "description": "Learn more about IntellySafe Edge System"
+    },
+    "main": {
+      "badge": "🚀 Let's talk about your project",
+      "headline1": "Transform your",
+      "headline2": "security with AI",
+      "description": "Fill in the form or contact one of our representatives directly. We are ready to show you the system in action.",
+      "form": {
+        "nome": "Name *",
+        "email": "Email *",
+        "messaggio": "Message",
+        "submit": "Send message →",
+        "successTitle": "Message sent!",
+        "successText": "We will reply as soon as possible.",
+        "errorNome": "Name is required",
+        "errorEmail": "Email is required",
+        "errorEmailInvalid": "Invalid email",
+        "formTitle": "Send us a message"
+      }
+    }
+  }
+}

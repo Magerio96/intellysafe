@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, fadeInRight, viewportOnce } from '@/lib/animations'
 import { Mail, ExternalLink, CheckCircle } from 'lucide-react'
@@ -14,6 +15,8 @@ interface FormData {
 }
 
 export default function ContattiMain() {
+  const t = useTranslations('contatti.main')
+  const tf = useTranslations('contatti.main.form')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
@@ -52,7 +55,7 @@ export default function ContattiMain() {
                 className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
                 style={{ background: 'rgba(255,98,25,0.15)', color: '#FF6219', border: '1px solid rgba(255,98,25,0.3)' }}
               >
-                🚀 Parliamo del tuo progetto
+                {t('badge')}
               </span>
             </motion.div>
 
@@ -62,12 +65,12 @@ export default function ContattiMain() {
               className="text-4xl md:text-5xl font-display font-bold text-white leading-[1.1] mb-5"
               style={{ willChange: 'transform' }}
             >
-              Trasforma la tua<br />
+              {t('headline1')}<br />
               <span style={{
                 background: 'linear-gradient(110deg, #6BBFFF 0%, #4A9EFF 40%, #FF6219 85%)',
                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
               }}>
-                sicurezza con l&apos;AI
+                {t('headline2')}
               </span>
             </motion.h2>
 
@@ -76,8 +79,7 @@ export default function ContattiMain() {
               className="text-base mb-10 leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.55)', maxWidth: 460, willChange: 'transform' }}
             >
-              Compila il form oppure contatta direttamente uno dei nostri referenti.
-              Siamo pronti a mostrarti il sistema in azione.
+              {t('description')}
             </motion.p>
 
             {/* Referenti */}
@@ -168,21 +170,21 @@ export default function ContattiMain() {
                   }}>
                     <CheckCircle style={{ width: 28, height: 28, color: '#FF6219' }} />
                   </div>
-                  <h3 className="font-display font-bold text-xl text-white mb-2">Messaggio inviato!</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14 }}>Ti risponderemo al più presto.</p>
+                  <h3 className="font-display font-bold text-xl text-white mb-2">{tf('successTitle')}</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14 }}>{tf('successText')}</p>
                 </div>
               ) : (
                 <>
-                  <h3 className="font-display font-bold text-white text-xl mb-6">Inviaci un messaggio</h3>
+                  <h3 className="font-display font-bold text-white text-xl mb-6">{tf('formTitle')}</h3>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
                     {/* Nome */}
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                        Nome *
+                        {tf('nome')}
                       </label>
                       <input
-                        {...register('nome', { required: 'Il nome è obbligatorio' })}
+                        {...register('nome', { required: tf('errorNome') })}
                         placeholder="Il tuo nome"
                         style={{
                           width: '100%', padding: '12px 16px', borderRadius: 10,
@@ -199,12 +201,12 @@ export default function ContattiMain() {
                     {/* Email */}
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                        Email *
+                        {tf('email')}
                       </label>
                       <input
                         {...register('email', {
-                          required: "L'email è obbligatoria",
-                          pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Email non valida' },
+                          required: tf('errorEmail'),
+                          pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: tf('errorEmailInvalid') },
                         })}
                         type="email"
                         placeholder="tua@email.com"
@@ -223,7 +225,7 @@ export default function ContattiMain() {
                     {/* Messaggio */}
                     <div>
                       <label className="block text-sm font-semibold mb-2" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                        Messaggio
+                        {tf('messaggio')}
                       </label>
                       <textarea
                         {...register('messaggio')}
@@ -251,7 +253,7 @@ export default function ContattiMain() {
                         cursor: loading ? 'not-allowed' : 'pointer',
                       }}
                     >
-                      {loading ? 'Invio in corso...' : 'Invia messaggio →'}
+                      {loading ? '...' : tf('submit')}
                     </button>
                   </form>
                 </>

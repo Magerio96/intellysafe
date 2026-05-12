@@ -1,10 +1,13 @@
 'use client'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer, viewportOnce } from '@/lib/animations'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 export default function Premio() {
+  const t = useTranslations('home.premio')
+
   return (
     <section
       className="relative flex-1 flex flex-col justify-center"
@@ -38,7 +41,7 @@ export default function Premio() {
               style={{ background: 'rgba(255,98,25,0.12)', border: '1px solid rgba(255,98,25,0.3)', color: '#FF6219' }}
             >
               <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: '#FF6219' }} />
-              Premio Nazionale 2023
+              {t('badge')}
             </span>
           </motion.div>
 
@@ -48,7 +51,7 @@ export default function Premio() {
             style={{ willChange: 'transform' }}
             className="font-display font-bold leading-[1.05] mb-3"
           >
-            <span className="block text-white text-3xl md:text-4xl">Campioni di</span>
+            <span className="block text-white text-3xl md:text-4xl">{t('headline1')}</span>
             <span
               className="block text-4xl md:text-5xl xl:text-[3.2rem]"
               style={{
@@ -58,7 +61,7 @@ export default function Premio() {
                 backgroundClip: 'text',
               }}
             >
-              InnovAzioni
+              {t('headline2')}
             </span>
           </motion.h2>
 
@@ -66,7 +69,7 @@ export default function Premio() {
           <motion.div variants={fadeInUp} style={{ willChange: 'transform' }} className="flex items-center justify-center gap-3 mb-5">
             <div className="h-px w-8 flex-shrink-0" style={{ backgroundColor: 'rgba(255,98,25,0.5)' }} />
             <span className="text-sm font-semibold tracking-wide uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              Decima Edizione &mdash; 10 / 11 Novembre 2023
+              {t('subtitle')}
             </span>
           </motion.div>
 
@@ -76,10 +79,7 @@ export default function Premio() {
             style={{ willChange: 'transform', color: 'rgba(255,255,255,0.58)' }}
             className="text-base leading-relaxed text-center"
           >
-            Il progetto{' '}
-            <strong className="text-white font-semibold">IntellySafe Edge System</strong>{' '}
-            è stato ammesso alla fase finale del contest nazionale, riconoscimento
-            dell&apos;eccellenza tecnologica nel campo della sicurezza sul lavoro.
+            {t('description')}
           </motion.p>
         </motion.div>
       </div>
@@ -151,7 +151,7 @@ export default function Premio() {
                   boxShadow: '0 0 30px rgba(255,98,25,0.5)',
                 }}
               >
-                Leggi l&apos;articolo →
+                {t('readArticle')}
               </span>
             </motion.div>
           </motion.a>
@@ -169,7 +169,7 @@ export default function Premio() {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           >
             <span>🏆</span>
-            <span>Finalisti Nazionali</span>
+            <span>{t('finalists')}</span>
           </motion.div>
 
           {/* Date badge bottom-left */}
@@ -186,7 +186,7 @@ export default function Premio() {
             transition={{ duration: 0.6, delay: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#6BBFFF' }} />
-            10 / 11 Novembre 2023
+            {t('date')}
           </motion.div>
         </div>
       </motion.div>

@@ -1,9 +1,13 @@
 'use client'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, fadeInRight, viewportOnce } from '@/lib/animations'
 import Image from 'next/image'
 
 export default function KitMoliris() {
+  const t = useTranslations('sistema.kitMoliris')
+  const features = t.raw('features') as string[]
+
   return (
     <section style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max">
@@ -17,7 +21,7 @@ export default function KitMoliris() {
             viewport={viewportOnce}
           >
             <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
-              Navigazione autonoma
+              {t('label')}
             </motion.span>
             <motion.div
               variants={fadeInUp}
@@ -28,21 +32,19 @@ export default function KitMoliris() {
               className="text-3xl md:text-4xl font-display font-bold mb-6"
               style={{ color: '#0f1221', willChange: 'transform' }}
             >
-              Kit Moliris
+              {t('headline')}
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="leading-relaxed mb-6"
               style={{ color: '#5A5C78', willChange: 'transform' }}
             >
-              Installare il KIT su un robot mobile consente la navigazione autonoma mediante
-              la percezione dell&apos;ambiente, la costruzione della mappa della zona, la
-              localizzazione del robot sulla mappa e l&apos;evitamento ostacoli.
+              {t('text')}
             </motion.p>
 
             {/* Feature list */}
             <motion.ul variants={staggerContainer} className="flex flex-col gap-3 mb-8">
-              {['Mapping Laser', 'Teleguida', 'Evitamento ostacoli'].map(item => (
+              {features.map(item => (
                 <motion.li
                   key={item}
                   variants={fadeInUp}
@@ -68,23 +70,21 @@ export default function KitMoliris() {
                 className="text-lg font-display font-bold mb-3"
                 style={{ color: '#0f1221', willChange: 'transform' }}
               >
-                Missioni
+                {t('missionTitle')}
               </motion.h3>
               <motion.p
                 variants={fadeInUp}
                 className="leading-relaxed mb-3"
                 style={{ color: '#5A5C78', willChange: 'transform' }}
               >
-                Il robot raggiungerà autonomamente una serie di tappe dette &lsquo;waypoint&rsquo;
-                pre-selezionate sulla mappa, attivando sensori ed attuatori installati a bordo.
+                {t('missionText1')}
               </motion.p>
               <motion.p
                 variants={fadeInUp}
                 className="leading-relaxed"
                 style={{ color: '#5A5C78', willChange: 'transform' }}
               >
-                Ad ogni waypoint il robot può effettuare azioni usando sensori ed attuatori
-                installati a bordo tramite un&apos;interfaccia semplice ed intuitiva.
+                {t('missionText2')}
               </motion.p>
             </motion.div>
           </motion.div>

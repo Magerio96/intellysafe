@@ -1,5 +1,6 @@
 'use client'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
@@ -7,6 +8,8 @@ import { REFERENTI } from '@/lib/constants'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 export default function CTABlock() {
+  const t = useTranslations('home.ctaBlock')
+
   return (
     <div
       className="flex-1 flex flex-col justify-center section-padding relative overflow-hidden"
@@ -28,7 +31,7 @@ export default function CTABlock() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
               style={{ background: 'rgba(255,98,25,0.15)', color: '#FF6219', border: '1px solid rgba(255,98,25,0.3)' }}
             >
-              🚀 Pronto per la tua demo
+              {t('badge')}
             </span>
           </motion.div>
 
@@ -38,12 +41,12 @@ export default function CTABlock() {
             className="text-4xl md:text-5xl xl:text-[3.2rem] font-display font-bold text-white leading-[1.1] mb-5"
             style={{ willChange: 'transform' }}
           >
-            Pronto a scoprire<br />
+            {t('headline1')}<br />
             <span style={{
               background: 'linear-gradient(110deg, #6BBFFF 0%, #4A9EFF 40%, #FF6219 85%)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
             }}>
-              IntellySafe?
+              {t('headlineAccent')}
             </span>
           </motion.h2>
 
@@ -52,7 +55,7 @@ export default function CTABlock() {
             className="text-lg mb-10 max-w-xl mx-auto"
             style={{ color: 'rgba(255,255,255,0.6)', willChange: 'transform' }}
           >
-            Contattaci per una demo o per maggiori informazioni sul sistema robotico AI.
+            {t('description')}
           </motion.p>
 
           {/* Buttons */}
@@ -62,10 +65,10 @@ export default function CTABlock() {
             style={{ willChange: 'transform' }}
           >
             <Link href="/contatti" className="btn-primary">
-              Contattaci ora →
+              {t('cta1')}
             </Link>
             <Link href="/sistema" className="btn-secondary">
-              Scopri il sistema
+              {t('cta2')}
             </Link>
           </motion.div>
 

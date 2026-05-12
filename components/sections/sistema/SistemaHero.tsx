@@ -1,10 +1,13 @@
 'use client'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 import { fadeInUp } from '@/lib/animations'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
 export default function SistemaHero() {
+  const t = useTranslations('sistema.hero')
+
   return (
     <section className="relative py-16 md:py-24 overflow-hidden" style={{ backgroundColor: '#161728' }}>
       <AnimatedBackground compact />
@@ -15,7 +18,7 @@ export default function SistemaHero() {
             Home
           </Link>
           <span>›</span>
-          <span className="text-white font-medium">Il Sistema</span>
+          <span className="text-white font-medium">{t('breadcrumb').split('›')[1]?.trim() ?? ''}</span>
         </nav>
 
         <motion.h1
@@ -25,7 +28,7 @@ export default function SistemaHero() {
           variants={fadeInUp}
           style={{ willChange: 'transform' }}
         >
-          IntellySafe Edge System
+          {t('headline')}
         </motion.h1>
 
         <div style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: '9999px', marginBottom: '1rem' }} />
@@ -37,7 +40,7 @@ export default function SistemaHero() {
           animate="visible"
           variants={fadeInUp}
         >
-          Sistema robotico di Intelligenza Artificiale per la sorveglianza attiva e il monitoraggio autonomo.
+          {t('description')}
         </motion.p>
       </div>
     </section>

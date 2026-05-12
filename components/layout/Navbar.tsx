@@ -1,17 +1,15 @@
 'use client'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { NAV_LINKS } from '@/lib/constants'
+import { useTranslations, useLocale } from 'next-intl'
+import { Link, usePathname, useRouter } from '@/i18n/navigation'
 import { Logo } from '@/components/ui/Logo'
 
-// Sections with dark backgrounds on the homepage snap layout
-const DARK_SECTIONS = new Set(['hero', 'premio', 'veicoli', 'contatti'])
-
 export default function Navbar() {
+  const t = useTranslations('nav')
+  const locale = useLocale()
   const pathname = usePathname()
+  const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('hero')
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const isHomepage = pathname === '/'
@@ -24,24 +22,29 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    if (pathname === '/') setActiveSection('hero')
     setMobileOpen(false)
   }, [pathname])
 
-  useEffect(() => {
-    const onSectionChange = (e: Event) => {
-      setActiveSection((e as CustomEvent<string>).detail)
-    }
-    window.addEventListener('sectionchange', onSectionChange)
-    return () => window.removeEventListener('sectionchange', onSectionChange)
-  }, [])
+  const switchLocale = (newLocale: string) => {
+    router.replace(pathname, { locale: newLocale })
+  }
 
   const linkColor = (href: string) => {
     if (pathname === href) return '#FF6219'
     return 'rgba(255,255,255,0.85)'
   }
 
-  const navLinks = NAV_LINKS.filter(l => l.href !== '/contatti')
+  const navLinks = [
+    { label: t('home'), href: '/' as const },
+    { label: t('sistema'), href: '/sistema' as const },
+    { label: t('funzionalita'), href: '/funzionalita' as const },
+    { label: t('applicazioni'), href: '/applicazioni' as const },
+  ]
+
+  const allNavLinks = [
+    ...navLinks,
+    { label: t('contatti'), href: '/contatti' as const },
+  ]
 
   return (
     <>
@@ -72,9 +75,29 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            {/* Language switcher */}
+            <div
+              className="flex items-center gap-1 rounded-lg overflow-hidden"
+              style={{ border: '1px solid rgba(255,255,255,0.15)', padding: '2px' }}
+            >
+              {(['it', 'en'] as const).map(loc => (
+                <button
+                  key={loc}
+                  onClick={() => switchLocale(loc)}
+                  className="text-xs font-bold uppercase px-2.5 py-1 rounded-md transition-colors duration-150"
+                  style={locale === loc
+                    ? { backgroundColor: '#FF6219', color: '#fff' }
+                    : { color: 'rgba(255,255,255,0.45)', backgroundColor: 'transparent' }
+                  }
+                >
+                  {loc}
+                </button>
+              ))}
+            </div>
+
             <Link href="/contatti" className="btn-primary text-sm">
-              Contattaci →
+              {t('cta')}
             </Link>
           </div>
 
@@ -107,7 +130,7 @@ export default function Navbar() {
           willChange: 'transform',
         }}
       >
-        {NAV_LINKS.map(link => (
+        {allNavLinks.map(link => (
           <Link
             key={link.href}
             href={link.href}
@@ -118,6 +141,25 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
+
+        {/* Mobile language switcher */}
+        <div className="flex items-center gap-1 rounded-lg overflow-hidden self-start mt-2"
+          style={{ border: '1px solid rgba(255,255,255,0.15)', padding: '2px' }}
+        >
+          {(['it', 'en'] as const).map(loc => (
+            <button
+              key={loc}
+              onClick={() => { switchLocale(loc); setMobileOpen(false) }}
+              className="text-xs font-bold uppercase px-2.5 py-1 rounded-md transition-colors duration-150"
+              style={locale === loc
+                ? { backgroundColor: '#FF6219', color: '#fff' }
+                : { color: 'rgba(255,255,255,0.45)', backgroundColor: 'transparent' }
+              }
+            >
+              {loc}
+            </button>
+          ))}
+        </div>
       </div>
     </>
   )

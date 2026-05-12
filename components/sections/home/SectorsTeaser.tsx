@@ -1,38 +1,21 @@
 'use client'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 import { Shield, Home, Package, ShieldCheck } from 'lucide-react'
 import { staggerContainer, fadeInUp, scaleIn } from '@/lib/animations'
 import Image from 'next/image'
 
-const CARDS = [
-  {
-    icon: Shield,
-    titolo: 'Sicurezza e sorveglianza',
-    descrizione: 'Ronde autonome h24, rilevamento intrusioni e dissuasione attiva senza presidio umano continuativo.',
-    tag: ['Ronde', 'Intrusioni', 'Dissuasione'],
-  },
-  {
-    icon: Home,
-    titolo: 'Sicurezza degli ambienti',
-    descrizione: 'Monitoraggio costante di perdite, gas, fumo e principi di incendio in ambienti industriali e civili.',
-    tag: ['Gas', 'Fumo', 'Incendio'],
-  },
-  {
-    icon: Package,
-    titolo: 'Logistica industriale',
-    descrizione: 'Trasporto autonomo di materiali, gestione magazzino e integrazione con sistemi WMS esistenti.',
-    tag: ['Trasporto', 'Magazzino', 'WMS'],
-  },
-  {
-    icon: ShieldCheck,
-    titolo: 'Difesa e perimetrazione',
-    descrizione: 'Pattugliamento automatico di zone vietate con alert in tempo reale e documentazione delle attività.',
-    tag: ['Pattugliamento', 'Alert'],
-  },
-]
+const CARD_ICONS = [Shield, Home, Package, ShieldCheck]
 
 export default function SectorsTeaser() {
+  const t = useTranslations('home.sectorsTeaser')
+  const cards = t.raw('cards') as Array<{
+    titolo: string
+    descrizione: string
+    tag: string[]
+  }>
+
   return (
     <section
       className="flex-1 flex flex-col justify-center"
@@ -47,21 +30,21 @@ export default function SectorsTeaser() {
             {/* Header */}
             <div>
               <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
-                Applicazioni
+                {t('label')}
               </motion.span>
               <motion.div variants={fadeInUp} style={{ willChange: 'transform', width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '0.75rem' }} />
               <motion.h2 variants={fadeInUp} style={{ willChange: 'transform', color: '#0f1221' }} className="text-4xl md:text-5xl font-display font-bold leading-tight mb-2">
-                Settori e <span style={{ color: '#FF6219' }}>applicazioni</span>
+                {t('headline1')} <span style={{ color: '#FF6219' }}>{t('headlineAccent')}</span>
               </motion.h2>
               <motion.p variants={fadeInUp} style={{ willChange: 'transform', color: '#6b7290', fontSize: 14, lineHeight: 1.6 }}>
-                Soluzioni per ogni ambito industriale e di servizio. Scopri dove IntellySafe è già al lavoro.
+                {t('description')}
               </motion.p>
             </div>
 
             {/* Card grid 2×2 */}
             <div className="grid grid-cols-2 gap-3">
-              {CARDS.map((card) => {
-                const Icon = card.icon
+              {cards.map((card, idx) => {
+                const Icon = CARD_ICONS[idx] ?? Shield
                 return (
                   <motion.div
                     key={card.titolo}
@@ -83,9 +66,9 @@ export default function SectorsTeaser() {
                     <p className="font-bold mb-1.5" style={{ fontSize: 14, color: '#0f1221' }}>{card.titolo}</p>
                     <p className="flex-1" style={{ fontSize: 12, color: '#6b7290', lineHeight: 1.55 }}>{card.descrizione}</p>
                     <div className="flex flex-wrap gap-1.5 mt-3">
-                      {card.tag.map(t => (
-                        <span key={t} style={{ fontSize: 11, fontWeight: 700, padding: '3px 9px', borderRadius: 5, backgroundColor: '#fff3ee', border: '1px solid #ffd4b8', color: '#FF6219' }}>
-                          {t}
+                      {card.tag.map(tag => (
+                        <span key={tag} style={{ fontSize: 11, fontWeight: 700, padding: '3px 9px', borderRadius: 5, backgroundColor: '#fff3ee', border: '1px solid #ffd4b8', color: '#FF6219' }}>
+                          {tag}
                         </span>
                       ))}
                     </div>
@@ -97,8 +80,8 @@ export default function SectorsTeaser() {
 
             {/* CTA visible only on mobile */}
             <motion.div variants={fadeInUp} style={{ willChange: 'transform' }} className="flex gap-3 lg:hidden mt-2">
-              <Link href="/applicazioni" className="btn-primary text-sm">Vedi tutte →</Link>
-              <Link href="/contatti" className="btn-secondary text-sm" style={{ color: '#0f1221', border: '1.5px solid #c8cedd' }}>Contattaci</Link>
+              <Link href="/applicazioni" className="btn-primary text-sm">{t('cta1')}</Link>
+              <Link href="/contatti" className="btn-secondary text-sm" style={{ color: '#0f1221', border: '1.5px solid #c8cedd' }}>{t('cta2')}</Link>
             </motion.div>
 
           </motion.div>
@@ -128,13 +111,13 @@ export default function SectorsTeaser() {
 
             {/* Bottom row sotto immagine */}
             <div className="relative z-10 flex items-center justify-between">
-              <p style={{ fontSize: 13, color: '#8a94b0' }}>+4 altri settori disponibili</p>
+              <p style={{ fontSize: 13, color: '#8a94b0' }}>{t('moreSectos')}</p>
               <div className="flex items-center gap-2.5">
                 <Link href="/applicazioni" className="inline-flex items-center font-bold text-white" style={{ fontSize: 13, backgroundColor: '#FF6219', padding: '11px 22px', borderRadius: 8 }}>
-                  Vedi tutte →
+                  {t('cta1')}
                 </Link>
                 <Link href="/contatti" className="inline-flex items-center font-semibold" style={{ fontSize: 13, color: '#0f1221', border: '1.5px solid #c8cedd', padding: '11px 22px', borderRadius: 8, backgroundColor: 'transparent' }}>
-                  Contattaci
+                  {t('cta2')}
                 </Link>
               </div>
             </div>

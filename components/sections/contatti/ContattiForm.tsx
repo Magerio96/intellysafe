@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { fadeInUp, viewportOnce } from '@/lib/animations'
 
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 export default function ContattiForm() {
+  const t = useTranslations('contatti.main.form')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
@@ -48,9 +50,9 @@ export default function ContattiForm() {
                 ✓
               </div>
               <h3 className="font-display font-bold text-xl mb-2" style={{ color: '#252849' }}>
-                Messaggio inviato!
+                {t('successTitle')}
               </h3>
-              <p style={{ color: '#5A5C78' }}>Ti risponderemo al più presto.</p>
+              <p style={{ color: '#5A5C78' }}>{t('successText')}</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} className="card-light p-8 space-y-6">
@@ -59,10 +61,10 @@ export default function ContattiForm() {
                   className="block text-sm font-semibold mb-1.5"
                   style={{ color: '#252849' }}
                 >
-                  Nome *
+                  {t('nome')}
                 </label>
                 <input
-                  {...register('nome', { required: 'Il nome è obbligatorio' })}
+                  {...register('nome', { required: t('errorNome') })}
                   className={`input-field${errors.nome ? ' input-field-error' : ''}`}
                   placeholder="Il tuo nome"
                 />
@@ -76,14 +78,14 @@ export default function ContattiForm() {
                   className="block text-sm font-semibold mb-1.5"
                   style={{ color: '#252849' }}
                 >
-                  Email *
+                  {t('email')}
                 </label>
                 <input
                   {...register('email', {
-                    required: "L'email è obbligatoria",
+                    required: t('errorEmail'),
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: 'Email non valida',
+                      message: t('errorEmailInvalid'),
                     },
                   })}
                   type="email"
@@ -100,7 +102,7 @@ export default function ContattiForm() {
                   className="block text-sm font-semibold mb-1.5"
                   style={{ color: '#252849' }}
                 >
-                  Messaggio
+                  {t('messaggio')}
                 </label>
                 <textarea
                   {...register('messaggio')}
@@ -115,7 +117,7 @@ export default function ContattiForm() {
                 disabled={loading}
                 className="btn-primary w-full justify-center disabled:opacity-60"
               >
-                {loading ? 'Invio in corso...' : 'Invia messaggio →'}
+                {loading ? '...' : t('submit')}
               </button>
             </form>
           )}

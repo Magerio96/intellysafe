@@ -2,15 +2,19 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const words = ['Monitoraggio', 'Sorveglianza', 'Sicurezza']
+interface AnimatedTextProps {
+  words?: string[]
+}
 
-export default function AnimatedText() {
+const DEFAULT_WORDS = ['Monitoraggio', 'Sorveglianza', 'Sicurezza']
+
+export default function AnimatedText({ words = DEFAULT_WORDS }: AnimatedTextProps) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => setIndex(i => (i + 1) % words.length), 2500)
     return () => clearInterval(interval)
-  }, [])
+  }, [words.length])
 
   return (
     <span className="inline-block min-w-[280px]">

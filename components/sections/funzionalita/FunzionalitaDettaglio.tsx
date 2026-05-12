@@ -1,12 +1,14 @@
 'use client'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight, viewportOnce } from '@/lib/animations'
 import Image from 'next/image'
-import Link from 'next/link'
-import AnimatedBackground from '@/components/ui/AnimatedBackground'
-import { SCHEDULING_CARDS } from '@/lib/constants'
 
 export default function FunzionalitaDettaglio() {
+  const ts = useTranslations('funzionalita.scheduling')
+  const ti = useTranslations('funzionalita.inputOutput')
+  const cards = ts.raw('cards') as Array<{ titolo: string; testo: string }>
+
   return (
     <section style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max flex flex-col gap-20">
@@ -16,18 +18,17 @@ export default function FunzionalitaDettaglio() {
           {/* Left */}
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
             <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
-              Pianificazione
+              {ts('label')}
             </motion.span>
             <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold mb-4" style={{ color: '#0f1221', willChange: 'transform' }}>
-              Scheduling missioni e supervisione
+              {ts('headline')}
             </motion.h2>
             <motion.p variants={fadeInUp} className="leading-relaxed mb-8" style={{ color: '#6b7290', fontSize: 14, lineHeight: 1.6, willChange: 'transform' }}>
-              Il robot è equipaggiato con una applicazione accessibile in rete locale, tramite browser web,
-              in grado di pianificarne le missioni, gestirle e di supervisionarne il funzionamento in tempo reale.
+              {ts('text')}
             </motion.p>
             <div className="flex flex-col gap-3">
-              {SCHEDULING_CARDS.map((card, i) => (
+              {cards.map((card, i) => (
                 <motion.div key={i} variants={fadeInUp} style={{
                   willChange: 'transform',
                   backgroundColor: '#fff',
@@ -47,7 +48,7 @@ export default function FunzionalitaDettaglio() {
             </div>
           </motion.div>
 
-          {/* Right: immagine ritagliata — excess bianco a destra rimosso */}
+          {/* Right: immagine ritagliata */}
           <motion.div initial="hidden" whileInView="visible" viewport={viewportOnce} variants={fadeInRight} style={{ willChange: 'transform' }}>
             <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: 12, overflow: 'hidden' }}>
               <Image
@@ -80,17 +81,14 @@ export default function FunzionalitaDettaglio() {
           {/* Right: testo */}
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOnce}>
             <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
-              Sensoristica
+              {ti('label')}
             </motion.span>
             <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
             <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold mb-6" style={{ color: '#0f1221', willChange: 'transform' }}>
-              Input/Output
+              {ti('headline')}
             </motion.h2>
             <motion.p variants={fadeInUp} className="leading-relaxed" style={{ color: '#6b7290', fontSize: 14, lineHeight: 1.6, willChange: 'transform' }}>
-              Potete equipaggiare il nostro sistema robotico con una serie di sensori analogici
-              e digitali, e riportare le informazioni e gli eventi associati nel sw di
-              supervisione e controllo. In questa schermata sono listati alcuni I/O presenti
-              nel sistema robotico.
+              {ti('text')}
             </motion.p>
           </motion.div>
         </div>

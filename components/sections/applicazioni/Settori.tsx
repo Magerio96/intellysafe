@@ -1,52 +1,15 @@
 'use client'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { staggerContainer, fadeInUp, viewportOnce } from '@/lib/animations'
 import { Shield, Home, Leaf, Heart, Package, Settings, Crosshair, Zap, type LucideIcon } from 'lucide-react'
 
-const SETTORI: { titolo: string; icon: LucideIcon; voci: string[] }[] = [
-  {
-    titolo: 'Sicurezza e sorveglianza',
-    icon: Shield,
-    voci: ['Ronde', 'Rilevamento intrusi', 'Dissuasione'],
-  },
-  {
-    titolo: 'Sicurezza degli ambienti',
-    icon: Home,
-    voci: ['Rilevamento perdite acqua', 'Principi di incendio', 'Gas', 'Fumo'],
-  },
-  {
-    titolo: 'Agricoltura di precisione',
-    icon: Leaf,
-    voci: ['Irrorazione fitofarmaci', 'Conferimento (raccolta)', 'Controllo inerbimento'],
-  },
-  {
-    titolo: 'Sanità',
-    icon: Heart,
-    voci: ['Sanificazione', 'Trasporto farmaci e campioni', 'Trasporto biancheria e rifiuti'],
-  },
-  {
-    titolo: 'Movimentazione materiali',
-    icon: Package,
-    voci: ['Con braccio manipolatore', 'Con integrazione alla logistica'],
-  },
-  {
-    titolo: 'Impianti industriali o centrali',
-    icon: Settings,
-    voci: ['Ispezioni', 'Rilevamento'],
-  },
-  {
-    titolo: 'Rilevamento laser',
-    icon: Crosshair,
-    voci: ['Rilevamenti laser scanner ad alta risoluzione di edifici', 'Digital twin'],
-  },
-  {
-    titolo: 'Primo intervento',
-    icon: Zap,
-    voci: ['Primo intervento dopo un disastro'],
-  },
-]
+const SETTORE_ICONS: LucideIcon[] = [Shield, Home, Leaf, Heart, Package, Settings, Crosshair, Zap]
 
 export default function Settori() {
+  const t = useTranslations('applicazioni.settori')
+  const items = t.raw('items') as Array<{ titolo: string; voci: string[] }>
+
   return (
     <section style={{ backgroundColor: '#f5f6fa', padding: '80px 0', borderTop: '1px solid #e4e8f0' }}>
       <div className="container-max">
@@ -60,11 +23,11 @@ export default function Settori() {
           viewport={viewportOnce}
         >
           <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label block mb-3">
-            Applicazioni
+            {t('label')}
           </motion.span>
           <motion.div variants={fadeInUp} style={{ width: '3rem', height: '2px', backgroundColor: '#FF6219', borderRadius: 9999, marginBottom: '1.5rem', willChange: 'transform' }} />
           <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-display font-bold" style={{ color: '#0f1221', willChange: 'transform' }}>
-            Settori e possibili applicazioni
+            {t('headline')}
           </motion.h2>
         </motion.div>
 
@@ -77,8 +40,8 @@ export default function Settori() {
           viewport={viewportOnce}
           style={{ willChange: 'transform' }}
         >
-          {SETTORI.map((s) => {
-            const Icon = s.icon
+          {items.map((s, idx) => {
+            const Icon = SETTORE_ICONS[idx] ?? Shield
             return (
               <motion.div
                 key={s.titolo}

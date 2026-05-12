@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { staggerContainer, fadeInUp } from '@/lib/animations'
 import Image from 'next/image'
@@ -67,16 +68,17 @@ const VEICOLI = [
   },
 ]
 
-const FILTRI: { label: string; value: Filtro }[] = [
-  { label: 'Tutti',    value: 'tutti'   },
-  { label: 'Tracked',  value: 'tracked' },
-  { label: 'Wheeled',  value: 'wheeled' },
-]
-
 export default function VeicoliCompatibili() {
+  const t = useTranslations('sistema.veicoli')
   const [filtro,   setFiltro]   = useState<Filtro>('tutti')
   const [active,   setActive]   = useState(0)
   const [animKey,  setAnimKey]  = useState(0)
+
+  const FILTRI: { label: string; value: Filtro }[] = [
+    { label: t('filterAll'), value: 'tutti'   },
+    { label: 'Tracked',      value: 'tracked' },
+    { label: 'Wheeled',      value: 'wheeled' },
+  ]
 
   const filtered = VEICOLI.filter(v => filtro === 'tutti' || v.tipo === filtro)
   const v = filtered[active] ?? filtered[0]
@@ -112,7 +114,7 @@ export default function VeicoliCompatibili() {
         >
           <div>
             <motion.span variants={fadeInUp} style={{ willChange: 'transform' }} className="section-label-light block mb-2">
-              Compatibilità
+              {t('label')}
             </motion.span>
             <motion.div
               variants={fadeInUp}
@@ -123,7 +125,7 @@ export default function VeicoliCompatibili() {
               style={{ willChange: 'transform' }}
               className="text-4xl md:text-5xl font-display font-bold leading-tight gradient-text"
             >
-              Veicoli compatibili
+              {t('headline')}
             </motion.h2>
           </div>
           <motion.p
@@ -131,8 +133,7 @@ export default function VeicoliCompatibili() {
             style={{ willChange: 'transform', color: 'rgba(255,255,255,0.5)', maxWidth: 400 }}
             className="text-base leading-relaxed md:text-right"
           >
-            I sistemi supportano diverse piattaforme robotiche, permettendo l&apos;integrazione
-            e il controllo di veicoli con caratteristiche e capacità differenti.
+            {t('description')}
           </motion.p>
         </motion.div>
 
@@ -251,23 +252,23 @@ export default function VeicoliCompatibili() {
                 </div>
 
                 <div className="flex flex-wrap gap-1.5">
-                  {v.tags.map(t => (
+                  {v.tags.map(tag => (
                     <span
-                      key={t}
+                      key={tag}
                       className="text-[11px] font-semibold px-2.5 py-1 rounded-md"
                       style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}
                     >
-                      {t}
+                      {tag}
                     </span>
                   ))}
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <Link href="/contatti" className="btn-primary text-center">
-                    Richiedi informazioni →
+                    {t('cta1')}
                   </Link>
                   <Link href="/contatti" className="btn-secondary text-center">
-                    Scheda tecnica
+                    {t('cta2')}
                   </Link>
                 </div>
               </div>

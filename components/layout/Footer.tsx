@@ -1,8 +1,20 @@
-import Link from 'next/link'
-import { NAV_LINKS, REFERENTI } from '@/lib/constants'
+import { getTranslations } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import { Logo } from '@/components/ui/Logo'
+import { REFERENTI } from '@/lib/constants'
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations('footer')
+  const tn = await getTranslations('nav')
+
+  const navLinks = [
+    { label: tn('home'), href: '/' as const },
+    { label: tn('sistema'), href: '/sistema' as const },
+    { label: tn('funzionalita'), href: '/funzionalita' as const },
+    { label: tn('applicazioni'), href: '/applicazioni' as const },
+    { label: tn('contatti'), href: '/contatti' as const },
+  ]
+
   return (
     <footer
       className="noise"
@@ -12,7 +24,7 @@ export default function Footer() {
         <div>
           <Logo variant="light" />
           <p className="mt-4 text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
-            Sistema robotico di intelligenza artificiale per sorveglianza attiva, monitoraggio e sicurezza.
+            {t('description')}
           </p>
           <div className="flex flex-col gap-2 text-sm">
             <a
@@ -36,9 +48,9 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <span className="section-label-light block mb-4">Navigazione</span>
+          <span className="section-label-light block mb-4">{t('navigation')}</span>
           <ul className="space-y-2">
-            {NAV_LINKS.map(link => (
+            {navLinks.map(link => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -52,7 +64,7 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <span className="section-label-light block mb-4">Contatti</span>
+          <span className="section-label-light block mb-4">{t('contacts')}</span>
           <div className="space-y-4 text-sm">
             {REFERENTI.map(r => (
               <div key={r.email}>
@@ -73,14 +85,14 @@ export default function Footer() {
               className="inline-block mt-2 text-xs px-3 py-1.5 rounded-lg transition-colors hover:text-[#FF6219]"
               style={{ color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.15)' }}
             >
-              📄 Brochure PDF
+              📄 {t('brochure')}
             </a>
           </div>
         </div>
       </div>
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="container-max py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm relative z-10" style={{ color: 'rgba(255,255,255,0.25)' }}>
-          <span>© 2025 IntellySafe Edge System — Created by Udanet</span>
+          <span>{t('copyright')}</span>
           <div className="flex items-center gap-4">
             <a
               href="https://www.iubenda.com/privacy-policy/38114373"

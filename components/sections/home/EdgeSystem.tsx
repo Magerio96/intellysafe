@@ -1,20 +1,16 @@
 'use client'
 import { useRef, useState } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { motion } from 'framer-motion'
 import { Play, Pause, Zap, Wifi, BellRing, Network, BarChart2, Settings2 } from 'lucide-react'
 import { fadeInUp, staggerContainer, scaleIn } from '@/lib/animations'
 
-const FEATURES = [
-  { icon: Zap,      title: 'Azioni automatiche',   description: 'Esegue azioni se rileva malfunzionamenti o intrusioni' },
-  { icon: Wifi,     title: 'Controllo remoto',      description: 'Comandato localmente o a distanza tramite apposita app' },
-  { icon: BellRing, title: 'Allarmi istantanei',    description: 'Messaggi di allarme agli operatori e alla centrale h24' },
-  { icon: Network,  title: 'Modalità collaborativa',description: 'Lavora in sinergia con altri robot della stessa serie' },
-  { icon: BarChart2,title: 'Misurazioni in campo',  description: 'Rileva dati da sensoristica ed attuatori in tempo reale' },
-  { icon: Settings2,title: 'Gestione flessibile',   description: 'Pianifica, gestisce e supervisiona le missioni autonomamente' },
-]
+const ICONS = [Zap, Wifi, BellRing, Network, BarChart2, Settings2]
 
 export default function EdgeSystem() {
+  const t = useTranslations('home.edgeSystem')
+  const features = t.raw('features') as Array<{ title: string; description: string }>
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
 
@@ -43,7 +39,7 @@ export default function EdgeSystem() {
                 style={{ willChange: 'transform' }}
                 className="section-label block mb-3"
               >
-                Il Sistema di Intelligenza Artificiale
+                {t('label')}
               </motion.span>
 
               <motion.div
@@ -56,7 +52,7 @@ export default function EdgeSystem() {
                 style={{ willChange: 'transform', color: '#252849' }}
                 className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight"
               >
-                IntellySafe <span style={{ color: '#FF6219' }}>Edge System</span>
+                {t('headline')} <span style={{ color: '#FF6219' }}>{t('headlineAccent')}</span>
               </motion.h2>
 
               <motion.p
@@ -64,16 +60,16 @@ export default function EdgeSystem() {
                 style={{ willChange: 'transform', color: '#5A5C78' }}
                 className="text-base mb-6 leading-relaxed"
               >
-                Veicoli a guida autonoma che operano in campo senza ausilio del personale — sicuri, programmabili e sempre attivi.
+                {t('description')}
               </motion.p>
 
               <motion.div variants={fadeInUp} style={{ willChange: 'transform' }} className="flex items-center gap-3 flex-wrap">
                 <Link href="/sistema" className="btn-primary">
-                  Scopri il sistema →
+                  {t('cta1')}
                 </Link>
                 <button onClick={togglePlay} className="btn-outline">
                   {playing ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                  {playing ? 'Pausa demo' : 'Guarda la demo'}
+                  {playing ? t('ctaPause') : t('ctaPlay')}
                 </button>
               </motion.div>
             </motion.div>
@@ -120,7 +116,7 @@ export default function EdgeSystem() {
                     <button className="flex items-center justify-center rounded-full mb-2" style={{ width: 42, height: 42, backgroundColor: '#ff6a1f' }}>
                       <Play className="w-4 h-4 text-white ml-0.5" />
                     </button>
-                    <span className="text-xs" style={{ color: '#8a94b0' }}>Guarda la demo completa</span>
+                    <span className="text-xs" style={{ color: '#8a94b0' }}>{t('demoLabel')}</span>
                   </div>
                 )}
               </div>
@@ -136,8 +132,8 @@ export default function EdgeSystem() {
           animate="visible"
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3"
         >
-          {FEATURES.map((f) => {
-            const Icon = f.icon
+          {features.map((f, idx) => {
+            const Icon = ICONS[idx] ?? Zap
             return (
               <motion.div
                 key={f.title}

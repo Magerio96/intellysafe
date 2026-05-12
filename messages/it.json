@@ -1,0 +1,279 @@
+{
+  "nav": {
+    "home": "Home",
+    "sistema": "Il Sistema",
+    "funzionalita": "Funzionalità",
+    "applicazioni": "Applicazioni",
+    "contatti": "Contatti",
+    "cta": "Contattaci →"
+  },
+  "footer": {
+    "description": "Sistema robotico di intelligenza artificiale per sorveglianza attiva, monitoraggio e sicurezza.",
+    "navigation": "Navigazione",
+    "contacts": "Contatti",
+    "brochure": "Brochure PDF",
+    "copyright": "© 2025 IntellySafe Edge System — Created by Udanet"
+  },
+  "home": {
+    "hero": {
+      "badge": "Sistema robotico AI — Intelligenza Artificiale",
+      "headline1": "Sistema robotico di IA",
+      "headline2": "per attività di",
+      "description": "Ud'Anet, in collaborazione con Info Solution s.r.l, presenta IntellySafe Edge System: sviluppo di veicoli a guida autonoma da impiegare in processi produttivi e servizi a valore aggiunto senza ausilio del personale.",
+      "cta1": "Scopri il Sistema →",
+      "cta2": "Contattaci",
+      "stats": [
+        { "value": "5", "label": "Modelli robot" },
+        { "value": "8", "label": "Settori applicativi" },
+        { "value": "h24", "label": "Sorveglianza autonoma" }
+      ],
+      "animatedWords": ["sorveglianza", "monitoraggio", "sicurezza"]
+    },
+    "premio": {
+      "badge": "Premio Nazionale 2023",
+      "headline1": "Campioni di",
+      "headline2": "InnovAzioni",
+      "subtitle": "Decima Edizione — 10 / 11 Novembre 2023",
+      "description": "Il progetto IntellySafe Edge System è stato ammesso alla fase finale del contest nazionale, riconoscimento dell'eccellenza tecnologica nel campo della sicurezza sul lavoro.",
+      "readArticle": "Leggi l'articolo →",
+      "finalists": "Finalisti Nazionali",
+      "date": "10 / 11 Novembre 2023"
+    },
+    "edgeSystem": {
+      "label": "Il Sistema di Intelligenza Artificiale",
+      "headline": "IntellySafe",
+      "headlineAccent": "Edge System",
+      "description": "Veicoli a guida autonoma che operano in campo senza ausilio del personale — sicuri, programmabili e sempre attivi.",
+      "cta1": "Scopri il sistema →",
+      "ctaPlay": "Guarda la demo",
+      "ctaPause": "Pausa demo",
+      "demoLabel": "Guarda la demo completa",
+      "features": [
+        { "title": "Azioni automatiche", "description": "Esegue azioni se rileva malfunzionamenti o intrusioni" },
+        { "title": "Controllo remoto", "description": "Comandato localmente o a distanza tramite apposita app" },
+        { "title": "Allarmi istantanei", "description": "Messaggi di allarme agli operatori e alla centrale h24" },
+        { "title": "Modalità collaborativa", "description": "Lavora in sinergia con altri robot della stessa serie" },
+        { "title": "Misurazioni in campo", "description": "Rileva dati da sensoristica ed attuatori in tempo reale" },
+        { "title": "Gestione flessibile", "description": "Pianifica, gestisce e supervisiona le missioni autonomamente" }
+      ]
+    },
+    "vehiclesTeaser": {
+      "label": "Compatibilità",
+      "headline": "Veicoli compatibili",
+      "description": "I sistemi supportano diverse piattaforme robotiche, permettendo l'integrazione e il controllo di veicoli con caratteristiche e capacità differenti.",
+      "moreModels": "+ 3 altri modelli",
+      "cta1": "Richiedi informazioni →",
+      "cta2": "Vedi tutti i veicoli →",
+      "vehicles": [
+        {
+          "nome": "Heavy Duty",
+          "descrizione": "Alta portata, uso industriale pesante",
+          "dettaglio": "Progettato per ambienti industriali impegnativi, garantisce prestazioni elevate e affidabilità in condizioni estreme.",
+          "tags": ["Alta portata", "Cingolato", "Industriale"],
+          "specs": [
+            { "label": "Peso", "valore": "290", "unita": "kg" },
+            { "label": "Portata", "valore": "500", "unita": "kg" },
+            { "label": "Coppia", "valore": "1000", "unita": "Nm" },
+            { "label": "Protezione", "valore": "IP65", "unita": "" }
+          ]
+        },
+        {
+          "nome": "Tracked Pro",
+          "descrizione": "Compatto e versatile, IP67",
+          "dettaglio": "Soluzione compatta e versatile ideale per spazi ristretti, con elevata protezione contro acqua e polvere.",
+          "tags": ["Compatto", "Cingolato", "Versatile"],
+          "specs": [
+            { "label": "Peso", "valore": "180", "unita": "kg" },
+            { "label": "Portata", "valore": "120", "unita": "kg" },
+            { "label": "Coppia", "valore": "600", "unita": "Nm" },
+            { "label": "Protezione", "valore": "IP67", "unita": "" }
+          ]
+        }
+      ]
+    },
+    "sectorsTeaser": {
+      "label": "Applicazioni",
+      "headline1": "Settori e",
+      "headlineAccent": "applicazioni",
+      "description": "Soluzioni per ogni ambito industriale e di servizio. Scopri dove IntellySafe è già al lavoro.",
+      "moreSectos": "+4 altri settori disponibili",
+      "cta1": "Vedi tutte →",
+      "cta2": "Contattaci",
+      "cards": [
+        {
+          "titolo": "Sicurezza e sorveglianza",
+          "descrizione": "Ronde autonome h24, rilevamento intrusioni e dissuasione attiva senza presidio umano continuativo.",
+          "tag": ["Ronde", "Intrusioni", "Dissuasione"]
+        },
+        {
+          "titolo": "Sicurezza degli ambienti",
+          "descrizione": "Monitoraggio costante di perdite, gas, fumo e principi di incendio in ambienti industriali e civili.",
+          "tag": ["Gas", "Fumo", "Incendio"]
+        },
+        {
+          "titolo": "Logistica industriale",
+          "descrizione": "Trasporto autonomo di materiali, gestione magazzino e integrazione con sistemi WMS esistenti.",
+          "tag": ["Trasporto", "Magazzino", "WMS"]
+        },
+        {
+          "titolo": "Difesa e perimetrazione",
+          "descrizione": "Pattugliamento automatico di zone vietate con alert in tempo reale e documentazione delle attività.",
+          "tag": ["Pattugliamento", "Alert"]
+        }
+      ]
+    },
+    "ctaBlock": {
+      "badge": "🚀 Pronto per la tua demo",
+      "headline1": "Pronto a scoprire",
+      "headlineAccent": "IntellySafe?",
+      "description": "Contattaci per una demo o per maggiori informazioni sul sistema robotico AI.",
+      "cta1": "Contattaci ora →",
+      "cta2": "Scopri il sistema"
+    }
+  },
+  "sistema": {
+    "hero": {
+      "breadcrumb": "Home › Il Sistema",
+      "headline": "IntellySafe Edge System",
+      "description": "Sistema robotico di Intelligenza Artificiale per la sorveglianza attiva e il monitoraggio autonomo."
+    },
+    "panoramica": {
+      "label1": "Il Sistema",
+      "headline1": "Descrizione del sistema",
+      "text1": "IntellySafe Edge System è un sistema robotico di Intelligenza Artificiale per la sorveglianza attiva, costituito da un'applicazione server dislocata e da un'applicazione web che può interfacciarsi con i sistemi di navigazione di robot.",
+      "text2": "Il sistema è in grado di rilevare intrusioni, grazie alle telecamere a bordo del robot e ad un algoritmo ottimizzato di intelligenza artificiale, in grado di riconoscere persone o animali.",
+      "cta": "Richiedi una demo →",
+      "label2": "Interfaccia",
+      "headline2": "Interfaccia utente e alcune basi robotiche",
+      "text3": "Il sistema si controlla tramite un'interfaccia grafica accessibile da un comune browser per PC o tablet in connessione wireless. L'interfaccia permette di visualizzare il video della telecamera di bordo e le telemetrie del robot, di creare e gestire le mappe, di programmare e gestire le missioni, ma anche guidare e controllare il robot tramite tastiera, mouse o joypad.",
+      "features": [
+        { "titolo": "Azioni automatiche", "descrizione": "Esegue azioni automatiche se rileva malfunzionamenti ed intrusioni" },
+        { "titolo": "Allarmi in tempo reale", "descrizione": "Invia messaggi di allarme agli operatori in campo ed alla centrale di sorveglianza" },
+        { "titolo": "Controllo da remoto", "descrizione": "Può essere comandato tramite apposita applicazione sia localmente che a distanza, per garantire la massima sicurezza agli operatori" },
+        { "titolo": "Controllo programmato", "descrizione": "Svolge un servizio di controllo programmabile o in automatico" },
+        { "titolo": "Intercetta intrusi", "descrizione": "Intercetta e documenta le attività svolte da personale non autorizzato nell'area sorvegliata" },
+        { "titolo": "Modalità collaborativa", "descrizione": "Lavora in modalità collaborativa con altri robot della stessa serie" }
+      ]
+    },
+    "kitMoliris": {
+      "label": "Navigazione autonoma",
+      "headline": "Kit Moliris",
+      "text": "Installare il KIT su un robot mobile consente la navigazione autonoma mediante la percezione dell'ambiente, la costruzione della mappa della zona, la localizzazione del robot sulla mappa e l'evitamento ostacoli.",
+      "features": ["Mapping Laser", "Teleguida", "Evitamento ostacoli"],
+      "missionTitle": "Missioni",
+      "missionText1": "Il robot raggiungerà autonomamente una serie di tappe dette 'waypoint' pre-selezionate sulla mappa, attivando sensori ed attuatori installati a bordo.",
+      "missionText2": "Ad ogni waypoint il robot può effettuare azioni usando sensori ed attuatori installati a bordo tramite un'interfaccia semplice ed intuitiva."
+    },
+    "sistemaIA": {
+      "label": "Intelligenza Artificiale",
+      "headline": "Il Sistema di Intelligenza Artificiale",
+      "features": [
+        { "titolo": "Azioni automatiche", "descrizione": "Esegue azioni automatiche se rileva malfunzionamenti ed intrusioni" },
+        { "titolo": "Modalità collaborativa", "descrizione": "Lavora in modalità collaborativa con altri robot della stessa serie" },
+        { "titolo": "Comandato anche a distanza", "descrizione": "Può essere comandato tramite apposita applicazione sia localmente che a distanza, per garantire la massima sicurezza agli operatori" },
+        { "titolo": "Controllo programmato o automatico", "descrizione": "Svolge un servizio di controllo programmabile o in automatico" },
+        { "titolo": "Invia messaggi di allarme", "descrizione": "Invia messaggi di allarme agli operatori in campo ed alla centrale di sorveglianza" },
+        { "titolo": "Intercetta personale non autorizzato", "descrizione": "Intercetta e documenta le attività svolte da personale non autorizzato nell'area sorvegliata" },
+        { "titolo": "Misurazioni analogiche e digitali", "descrizione": "Rileva misurazioni analogiche e digitali in campo proveniente da sensoristica ed attuatori. Di conseguenza esegue azioni programmate" },
+        { "titolo": "Gestione flessibile", "descrizione": "Permette di gestire i sensori in modo flessibile, di pianificare le missioni, gestirle e di supervisionarne il funzionamento in tempo reale" }
+      ]
+    },
+    "veicoli": {
+      "label": "Compatibilità",
+      "headline": "Veicoli compatibili",
+      "description": "I sistemi supportano diverse piattaforme robotiche, permettendo l'integrazione e il controllo di veicoli con caratteristiche e capacità differenti.",
+      "filterAll": "Tutti",
+      "cta1": "Richiedi informazioni →",
+      "cta2": "Scheda tecnica"
+    }
+  },
+  "funzionalita": {
+    "hero": {
+      "breadcrumb": "Home › Funzionalità",
+      "headline": "Funzionalità",
+      "description": "Pianificazione, supervisione e controllo del sistema robotico in tempo reale."
+    },
+    "scheduling": {
+      "label": "Pianificazione",
+      "headline": "Scheduling missioni e supervisione",
+      "text": "Il robot è equipaggiato con una applicazione accessibile in rete locale, tramite browser web, in grado di pianificarne le missioni, gestirle e di supervisionarne il funzionamento in tempo reale.",
+      "cards": [
+        { "titolo": "Interfaccia per la sensoristica", "testo": "La sensoristica a bordo può essere configurata e gestita da una specifica interfaccia di supervisione" },
+        { "titolo": "Step di lavorazione personalizzati", "testo": "Tramite il sw a disposizione possiamo controllare il comportamento del robot e creare step di lavorazione personalizzati per ogni processo lavorativo" }
+      ]
+    },
+    "inputOutput": {
+      "label": "Sensoristica",
+      "headline": "Input/Output",
+      "text": "Potete equipaggiare il nostro sistema robotico con una serie di sensori analogici e digitali, e riportare le informazioni e gli eventi associati nel sw di supervisione e controllo. In questa schermata sono listati alcuni I/O presenti nel sistema robotico."
+    },
+    "guidaMissione": {
+      "label": "Workflow",
+      "headline": "Pianificazione di una missione",
+      "prev": "← Precedente",
+      "next": "Successivo →",
+      "steps": [
+        { "titolo": "Lista missioni configurate", "descrizione": "Visualizza e gestisci tutte le missioni già configurate nel sistema", "placeholderLabel": "Lista missioni configurate" },
+        { "titolo": "Configurazione di una missione", "descrizione": "Area di editing con elenco delle azioni disponibili per ogni waypoint della missione", "placeholderLabel": "Area di editing" },
+        { "titolo": "Associazione di azioni al waypoint", "descrizione": "Collega azioni di tipo I/O a ciascun punto della missione per automatizzare i comportamenti del robot", "placeholderLabel": "Azioni di tipo IO" },
+        { "titolo": "Missione in corso e fase attuale", "descrizione": "Supervisione in tempo reale della missione attiva e dello stato corrente del robot", "placeholderLabel": "Missione in corso" }
+      ]
+    }
+  },
+  "applicazioni": {
+    "hero": {
+      "breadcrumb": "Home › Applicazioni",
+      "headline": "Applicazioni",
+      "description": "Il sistema al lavoro nei settori industriali, agricoli e di sicurezza."
+    },
+    "settori": {
+      "label": "Applicazioni",
+      "headline": "Settori e possibili applicazioni",
+      "items": [
+        { "titolo": "Sicurezza e sorveglianza", "voci": ["Ronde", "Rilevamento intrusi", "Dissuasione"] },
+        { "titolo": "Sicurezza degli ambienti", "voci": ["Rilevamento perdite acqua", "Rilevamento principi di incendio", "Rilevamento gas", "Rilevamento fumo"] },
+        { "titolo": "Agricoltura di precisione", "voci": ["Irrorazione fitofarmaci", "Conferimento (raccolta)", "Controllo inerbimento"] },
+        { "titolo": "Sanità", "voci": ["Sanificazione", "Trasporto farmaci e campioni", "Trasporto biancheria e rifiuti"] },
+        { "titolo": "Movimentazione materiali", "voci": ["Con braccio manipolatore", "Con integrazione alla logistica"] },
+        { "titolo": "Impianti industriali o centrali", "voci": ["Ispezioni", "Rilevamento"] },
+        { "titolo": "Rilevamento laser", "voci": ["Rilevamenti laser scanner ad alta risoluzione di edifici", "Digital twin"] },
+        { "titolo": "Primo intervento", "voci": ["Primo intervento dopo un disastro"] }
+      ]
+    },
+    "casoDuso": {
+      "label": "Casi d'uso",
+      "headline": "Il sistema in azione",
+      "description": "Dalla prevenzione incendi all'agricoltura di precisione — guarda MOLIRIS al lavoro in scenari operativi reali.",
+      "videos": [
+        { "titolo": "Scopri la prevenzione incendi intelligente", "descrizione": "Rilevamento di principi di incendio e anomalie termiche in tempo reale con MOLIRIS & Thermospot®." },
+        { "titolo": "Segui l'agricoltura di precisione", "descrizione": "Distribuzione autonoma di biostimolanti e raccolta dati per una viticoltura smart." },
+        { "titolo": "Esplora lo smart farming con MOLIRIS", "descrizione": "Navigazione autonoma in serra e outdoor con rilevamento ostacoli in tempo reale." }
+      ]
+    }
+  },
+  "contatti": {
+    "hero": {
+      "breadcrumb": "Home › Contatti",
+      "headline": "Contattaci",
+      "description": "Per saperne di più su IntellySafe Edge System"
+    },
+    "main": {
+      "badge": "🚀 Parliamo del tuo progetto",
+      "headline1": "Trasforma la tua",
+      "headline2": "sicurezza con l'AI",
+      "description": "Compila il form oppure contatta direttamente uno dei nostri referenti. Siamo pronti a mostrarti il sistema in azione.",
+      "form": {
+        "nome": "Nome *",
+        "email": "Email *",
+        "messaggio": "Messaggio",
+        "submit": "Invia messaggio →",
+        "successTitle": "Messaggio inviato!",
+        "successText": "Ti risponderemo al più presto.",
+        "errorNome": "Il nome è obbligatorio",
+        "errorEmail": "L'email è obbligatoria",
+        "errorEmailInvalid": "Email non valida",
+        "formTitle": "Inviaci un messaggio"
+      }
+    }
+  }
+}
