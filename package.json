@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3004",
     "lint": "eslint",
-    "deploy": "npm run build && rsync -e ssh -aWzv --delete --stats --progress ./ root@intellysafe.it:/var/www/intellysafe.it"
+    "deploy": "rsync -e ssh -aWzv --delete --stats --progress --exclude=node_modules --exclude=.next --exclude=.git ./ root@intellysafe.it:/var/www/intellysafe.it && ssh root@intellysafe.it 'cd /var/www/intellysafe.it && npm install && npm run build && pm2 restart 7'"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
